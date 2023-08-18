@@ -1,0 +1,12 @@
+export const lerp = (a: number, b: number, n: number) => (1 - n) * a + n * b;
+export const clamp = (num: number, min: number, max: number) =>
+	num <= min ? min : num >= max ? max : num;
+export const map = (x: number, a: number, b: number, c: number, d: number) =>
+	((x - a) * (d - c)) / (b - a) + c;
+
+export function getMouseCoordinates(el: MouseEvent) {
+	return {
+		x: el.clientX,
+		y: el.clientY,
+	};
+}

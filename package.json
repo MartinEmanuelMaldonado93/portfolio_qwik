@@ -33,9 +33,11 @@
     "@storybook/html-vite": "7.0.23",
     "@types/eslint": "8.40.2",
     "@types/node": "^20.4.8",
+    "@types/splitting": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "5.61.0",
     "@typescript-eslint/parser": "5.61.0",
     "autoprefixer": "^10.4.14",
+    "better-typescript": "^0.1.6",
     "eslint": "8.44.0",
     "eslint-plugin-qwik": "^1.2.6",
     "postcss": "^8.4.23",
@@ -47,5 +49,12 @@
     "undici": "5.22.1",
     "vite": "4.4.0",
     "vite-tsconfig-paths": "4.2.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.32.0",
+    "gsap": "^3.12.2",
+    "smooth-scrollbar": "^8.8.4",
+    "splitting": "^1.0.6",
+    "supabase-auth-helpers-qwik": "^0.0.3"
   }
 }

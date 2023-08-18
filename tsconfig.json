@@ -16,9 +16,9 @@
     "isolatedModules": true,
     "outDir": "tmp",
     "noEmit": true,
-    "types": ["node", "vite/client"],
+    "types": ["node", "vite/client", "better-typescript"],
     "paths": {
-      "~/*": ["./src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "files": ["./.eslintrc.cjs"],
