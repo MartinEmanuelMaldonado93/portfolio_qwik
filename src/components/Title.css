@@ -1,18 +1,21 @@
 .title__btn {
-  opacity: 0;
-  translate: 0 100%;
+	opacity: 0;
+	transform: translateY(180%);
 }
 .title__brief {
-  opacity: 0;
-  translate: 0 80%;
+	opacity: 0;
+	transform: translateY(180%);
 }
 .title__container .title-clone .char {
 	opacity: 0;
 }
 .title__description .char {
-  opacity: 0;
+	opacity: 0;
 }
 
+.title__text .char {
+  opacity: 0;
+}
 @keyframes slide-down {
 	to {
 		opacity: 1;

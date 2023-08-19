@@ -6,6 +6,7 @@ import styles from "./Title.css?inline";
 import { LettersAnimate } from "./Letters";
 import gsap from "gsap";
 import Footer from "./footer";
+import { animate, stagger } from "motion";
 
 export const Title = component$(() => {
 	useStyles$(styles);
@@ -14,49 +15,68 @@ export const Title = component$(() => {
 		const container = document.querySelector(".title__container")!;
 		const letters = new LettersAnimate(container, Splitting, ".title__text");
 		//first animation
-		letters.slideFromSide();
-		container.addEventListener("mouseenter", () => letters.runAnimation());
-		container.addEventListener("mouseleave", () => letters.resetAnimation());
+		// letters.slideFromSide();
+		container.addEventListener("mouseenter", () =>
+			letters.runRotateAnimation()
+		);
+		container.addEventListener("mouseleave", () =>
+			letters.resetRotateAnimation()
+		);
 
 		const description = document.querySelector(".title__description")!;
 		Splitting({ target: description });
 		const descriptionChars = [...description.querySelectorAll(".char")!];
 
-		gsap
-			.timeline({
-				defaults: {
-					duration: 1,
-					ease: "power3",
-					stagger: 0.025,
-					delay: 0.8,
-				},
-			})
-			.to(descriptionChars, {
-				opacity: "1",
-			});
-		const brief = document.querySelector(".title__brief");
-		gsap
-			.timeline({
-				defaults: {
-					duration: 1,
-					ease: "power3",
-					stagger: 0.025,
-					delay: 1.8,
-				},
-			})
-			.to(brief, { opacity: 1, y: 0 });
+		animate(
+			letters.getCollectionChars()!,
+			{
+				opacity: 1,
+			},
+			{
+				duration: 1,
+				delay: stagger(0.025),
+				easing: (t: number) => Math.pow(t, 3),
+			}
+		);
+		animate(letters.getCollectionChars()!, {});
+		animate(
+			descriptionChars,
+			{
+				opacity: 1,
+			},
+			{
+				duration: 1,
+				delay: stagger(0.025, { start: 1 }),
+				easing: (t: number) => Math.pow(t, 3),
+			}
+		);
+		const brief = document.querySelector(".title__brief")!;
 
-		const workButton = document.querySelector(".title__btn");
-		gsap
-			.timeline({
-				defaults: {
-					duration: 1,
-					ease: "power3",
-					delay: 2,
-				},
-			})
-			.to(workButton, { y: 0, opacity: 1 });
+		animate(
+			brief,
+			{ opacity: 1, transform: "translateY(0)" },
+			{
+				duration: 1,
+				easing: "ease-in-out",
+				delay: 1.5,
+			}
+		);
+
+		const buttonWork = document.querySelector(".title__btn")!;
+		animate(
+			buttonWork,
+			{
+				opacity: 1,
+				transform: "translateY(0)",
+			},
+			{
+				duration: 1,
+				easing: "ease-in-out",
+				delay: 2,
+			}
+		);
 	});
+
 	return (
 		<>
 			<div id='home' class='flex flex-col min-h-screen justify-evenly px-4'>
@@ -79,7 +99,6 @@ export const Title = component$(() => {
 					</a>
 				</div>
 			</div>
-			<Footer />
 		</>
 	);
 });

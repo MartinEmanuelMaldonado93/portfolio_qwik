@@ -2,6 +2,7 @@ import CursorWrap from "@/components/CursorWrap";
 import { Navbar } from "@/components/Navbar";
 import { Title } from "@/components/Title";
 import { WorkExperience } from "@/components/WorkExperience";
+import Footer from "@/components/footer";
 import { component$, useVisibleTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import Scrollbar from "smooth-scrollbar";
@@ -47,9 +48,10 @@ export default component$(() => {
 		<div class='min-h-screen'>
 			<Navbar />
 			<Title />
-      <WorkExperience />
+			{/* <WorkExperience /> */}
 			{/* <InlineComp /> */}
-			{/* <CursorWrap /> */}
+			<CursorWrap />
+			<Footer />
 		</div>
 	);
 });

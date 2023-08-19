@@ -10,9 +10,9 @@ export class LettersAnimate {
 		Splitting: (options?: Splitting.Options) => Splitting.Result,
 		innerElement?: string
 	) {
-		innerElement && this.setInnerElement(container, innerElement, Splitting);
+		innerElement && this.splitInnerElement(container, innerElement, Splitting);
 	}
-	runAnimation() {
+	runRotateAnimation() {
 		if (!this.charsText || !this.charsTextClone) return;
 
 		this.gsapTimeLine = gsap
@@ -35,7 +35,7 @@ export class LettersAnimate {
 				0
 			);
 	}
-	resetAnimation() {
+	resetRotateAnimation() {
 		if (!this.charsText || !this.charsTextClone) return;
 
 		this.gsapTimeLine?.kill();
@@ -64,17 +64,8 @@ export class LettersAnimate {
 				0
 			);
 	}
-	slideFromSide() {
-		if (!this.charsText) return;
 
-		gsap.timeline().set(this.charsText, { opacity: 0 }).to(this.charsText, {
-			duration: 1,
-			ease: "power3",
-			opacity: 1,
-			stagger: 0.05,
-		});
-	}
-	setInnerElement(
+	splitInnerElement(
 		container: HTMLElement,
 		innerElement: string,
 		Splitting: (options?: Splitting.Options) => Splitting.Result
@@ -93,5 +84,8 @@ export class LettersAnimate {
 		/** Load array of chars */
 		this.charsTextClone = [...titleTextClone.querySelectorAll(".char")!];
 		this.charsText = [...titleText.querySelectorAll(".char")!];
+	}
+	getCollectionChars() {
+		return this.charsText;
 	}
 }
