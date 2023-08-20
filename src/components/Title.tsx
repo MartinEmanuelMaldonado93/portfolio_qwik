@@ -1,21 +1,21 @@
 import { component$, useStyles$, useVisibleTask$ } from "@builder.io/qwik";
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
-import Splitting from "splitting"; // import gsap from "gsap";
+import Splitting from "splitting";
 import styles from "./Title.css?inline";
 import { LettersAnimate } from "./Letters";
-import gsap from "gsap";
 import Footer from "./footer";
 import { animate, stagger } from "motion";
+
+const $$ = (selector: string) => document.querySelector(selector);
 
 export const Title = component$(() => {
 	useStyles$(styles);
 
 	useVisibleTask$(() => {
-		const container = document.querySelector(".title__container")!;
+		const container = $$(".title__container")!;
 		const letters = new LettersAnimate(container, Splitting, ".title__text");
-		//first animation
-		// letters.slideFromSide();
+		// add listeners
 		container.addEventListener("mouseenter", () =>
 			letters.runRotateAnimation()
 		);
@@ -23,22 +23,12 @@ export const Title = component$(() => {
 			letters.resetRotateAnimation()
 		);
 
-		const description = document.querySelector(".title__description")!;
+		const description = $$(".title__description")!;
+
 		Splitting({ target: description });
 		const descriptionChars = [...description.querySelectorAll(".char")!];
 
-		animate(
-			letters.getCollectionChars()!,
-			{
-				opacity: 1,
-			},
-			{
-				duration: 1,
-				delay: stagger(0.025),
-				easing: (t: number) => Math.pow(t, 3),
-			}
-		);
-		animate(letters.getCollectionChars()!, {});
+    const delayBase = 1.3;
 		animate(
 			descriptionChars,
 			{
@@ -46,23 +36,23 @@ export const Title = component$(() => {
 			},
 			{
 				duration: 1,
-				delay: stagger(0.025, { start: 1 }),
+				delay: stagger(0.025, { start: delayBase }),
 				easing: (t: number) => Math.pow(t, 3),
 			}
 		);
-		const brief = document.querySelector(".title__brief")!;
 
+		const brief = $$(".title__brief")!;
 		animate(
 			brief,
 			{ opacity: 1, transform: "translateY(0)" },
 			{
 				duration: 1,
 				easing: "ease-in-out",
-				delay: 1.5,
+				delay: delayBase + 1,
 			}
 		);
 
-		const buttonWork = document.querySelector(".title__btn")!;
+		const buttonWork = $$(".title__btn")!;
 		animate(
 			buttonWork,
 			{
@@ -70,9 +60,9 @@ export const Title = component$(() => {
 				transform: "translateY(0)",
 			},
 			{
-				duration: 1,
-				easing: "ease-in-out",
-				delay: 2,
+				duration: 1.5,
+				easing: "ease",
+				delay: delayBase + 2,
 			}
 		);
 	});

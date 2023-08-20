@@ -48,8 +48,8 @@ export default component$(() => {
 		<div class='min-h-screen'>
 			<Navbar />
 			<Title />
-			{/* <WorkExperience /> */}
-			{/* <InlineComp /> */}
+			<WorkExperience />
+			<InlineComp />
 			<CursorWrap />
 			<Footer />
 		</div>
