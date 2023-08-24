@@ -1,5 +1,5 @@
-import { gsap } from "gsap";
 import { getMouseCoordinates, lerp } from "./helpers";
+import { animate } from "motion";
 
 export class Cursor {
 	static mouse: { x: number; y: number };
@@ -22,8 +22,8 @@ export class Cursor {
 		this.el.style.opacity = "0";
 		Cursor.mouse = { x: 0, y: 0 };
 
-		const scrollContent = document.querySelector(".scroll-content")!;
-		this.bounds = document.querySelector("svg.cursor")!.getBoundingClientRect();
+		const scrollContent = document.querySelector("body")!;
+		this.bounds = el.getBoundingClientRect();
 
 		scrollContent.addEventListener("mousemove", (ev) => {
 			Cursor.mouse = getMouseCoordinates(ev);
@@ -33,18 +33,21 @@ export class Cursor {
 		this._RAF();
 	}
 	private onMouseMoveEv() {
+		animate(
+			this.el,
+			{
+				opacity: 1,
+			},
+			{
+				easing: "ease-in-out",
+				duration: 0.9,
+			}
+		);
 		// this.renderedStyles.tx.previous = this.renderedStyles.tx.current =
 		// 	Cursor.mouse.x - this.bounds.width / 2;
 
 		// this.renderedStyles.ty.previous = this.renderedStyles.ty.previous =
 		// 	Cursor.mouse.y - this.bounds.height / 2;
-
-		// gsap opacity
-		gsap.to(this.el, {
-			duration: 0.9,
-			ease: "bounce.inOut",
-			opacity: 1,
-		});
 	}
 	private _RAF() {
 		this.render();
@@ -73,7 +76,7 @@ export class Cursor {
 	enter() {
 		this.renderedStyles["scale"].current = 2.5;
 		this.renderedStyles["opacity"].current = 0.5;
-		this.el.style.backdropFilter = "invert(70%);";
+		// this.el.style.backdropFilter = "invert(70%);";
 	}
 	leave() {
 		this.renderedStyles["scale"].current = 1;

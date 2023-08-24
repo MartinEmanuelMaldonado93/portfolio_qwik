@@ -55,7 +55,7 @@ export class LettersAnimate {
 				transform: "translateY(0) rotateX(0deg)",
 			},
 			{
-				duration: 0.6,
+				duration: 0.8,
 				easing: "ease-in-out",
 				delay: stagger(0.025, { start: 0.4 }),
 			}
@@ -83,13 +83,11 @@ export class LettersAnimate {
 					{ delay: stagger(0.024), at: 0 },
 				],
 			],
-			{ duration: 1 }
+			{ duration: .8 }
 		);
 	}
 	resetRotateAnimation() {
 		if (!this.charsText || !this.charsTextClone) return;
-
-		this.motionTimeLine?.stop();
 
 		timeline(
 			[
@@ -112,7 +110,7 @@ export class LettersAnimate {
 					{ delay: stagger(0.024), at: 0 },
 				],
 			],
-			{ duration: 1.5 }
+			{ duration: 1 }
 		);
 	}
 	get CollectionChars() {

@@ -1,30 +1,19 @@
-import { Cursor } from "@/utils/Cursor";
-import type { CSSProperties } from "@builder.io/qwik";
-import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import type { CSSProperties, Signal } from "@builder.io/qwik";
 
-type CircleProps = SVGCircleElement & {
+type cursorProps = {
 	cursorColor?: CSSProperties["color"];
+	reference: Signal<SVGElement>;
 };
-export default component$<CircleProps>(({ cursorColor = "#18b6f6" }) => {
-	const circleRef = useSignal<SVGCircleElement>(undefined!);
-
-	// Only client side
-	useVisibleTask$(() => {
-		const cursor = new Cursor(document.querySelector("svg.cursor")!);
-
-		// cursor increase its size when  anchor tags are hovered
-		const anchors = document.querySelectorAll("a");
-
-		anchors?.forEach((link) => {
-			link.addEventListener("mouseenter", () => cursor.enter());
-			link.addEventListener("mouseleave", () => cursor.leave());
-		});
-	});
-
+export default function ({ cursorColor = "#18b6f6", reference }: cursorProps) {
 	return (
-		<svg class='cursor' width='20' height='20' viewBox='0 0 20 20'>
+		<svg
+			ref={reference}
+			class='cursor'
+			width='20'
+			height='20'
+			viewBox='0 0 20 20'
+		>
 			<circle
-				ref={circleRef}
 				style={`--cursor-fill: ${cursorColor}`}
 				class='cursor__inner'
 				cx='10'
@@ -33,4 +22,4 @@ export default component$<CircleProps>(({ cursorColor = "#18b6f6" }) => {
 			/>
 		</svg>
 	);
-});
+}

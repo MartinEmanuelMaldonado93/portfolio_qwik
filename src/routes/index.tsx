@@ -1,12 +1,14 @@
-import CursorWrap from "@/components/CursorWrap";
+import SvgCursor from "@/components/CursorWrap";
 import { Navbar } from "@/components/Navbar";
 import { Title } from "@/components/Title";
 import { WorkExperience } from "@/components/WorkExperience";
 import Footer from "@/components/footer";
-import { component$, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import Scrollbar from "smooth-scrollbar";
-import OverscrollPlugin from "smooth-scrollbar/plugins/overscroll";
+import LocomotiveScroll from "locomotive-scroll";
+import { Cursor } from "../utils/Cursor";
+import { GridBackground } from "../components/GridBackground";
+
 // import { routeLoader$ } from "@builder.io/qwik-city";
 // import { createServerClient } from "supabase-auth-helpers-qwik";
 // export const useDBTest = routeLoader$(async (requestEv) => {
@@ -20,27 +22,16 @@ import OverscrollPlugin from "smooth-scrollbar/plugins/overscroll";
 // });
 
 export default component$(() => {
+	const ref_cursor = useSignal<SVGElement>(null!);
+
 	useVisibleTask$(() => {
-		const isMobile =
-			/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-				navigator.userAgent
-			);
-		const el = document.querySelector("body")!;
-		Scrollbar.use(OverscrollPlugin);
-		Scrollbar.init(el, {
-			damping: isMobile ? 0.05 : 0.1,
-			continuousScrolling: true,
-			thumbMinSize: 20,
-			renderByPixels: Boolean("ontouchstart" in document),
-			plugins: {
-				overscroll: {
-					enable: true,
-					effect: "bounce",
-					damping: 0.2,
-					maxOverscroll: 150,
-					glowColor: "#222a2d",
-				},
-			},
+		new LocomotiveScroll();
+
+		const cursor = new Cursor(ref_cursor.value);
+		const anchors = document.querySelectorAll("a");
+		anchors?.forEach((link) => {
+			link.addEventListener("mouseenter", () => cursor.enter());
+			link.addEventListener("mouseleave", () => cursor.leave());
 		});
 	});
 
@@ -49,9 +40,9 @@ export default component$(() => {
 			<Navbar />
 			<Title />
 			<WorkExperience />
-			<InlineComp />
-			<CursorWrap />
 			<Footer />
+      <GridBackground />
+			<SvgCursor reference={ref_cursor} />
 		</div>
 	);
 });
@@ -103,3 +94,4 @@ const InlineComp = () => {
 		</div>
 	);
 };
+

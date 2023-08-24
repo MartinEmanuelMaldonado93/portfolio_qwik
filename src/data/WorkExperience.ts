@@ -1,78 +1,51 @@
-export type WorkExperience = {
+import type { CSSProperties } from "@builder.io/qwik";
+
+type CardProps = {
 	title: string;
-	company_name: string;
-	icon: string;
-	iconBg: string;
-	date: string;
+	location: string;
+	date?: string;
+	role: string | string[];
+	description: string;
+	stack?: string;
 	points: string[];
+	img_url: string;
+	bg_tw?: string;
+	alt: string;
 };
-export const WorkExperienceData: WorkExperience[] = [
+
+export const workExpData: CardProps[] = [
 	{
-		company_name: "Frontend Engineer",
-		title: "Meatbrains.com, San Francisco CA",
-		icon: "/icons/meatbrain.jpg",
-		iconBg: "#383E56",
-		date: "jan 2023 - currently",
+		title: "Voxabular.com",
+		location: "San Francisco C.A. USA",
+		role: "Frontend developer",
+		date: "",
+		description:
+			"Learning Platform Web Game. ( TypeScript, React, Lit, Three.js, WebGL, Css3, Capacitor for mobile )",
+		points: [
+			"Refactoring tasks like improve UI/UX and CSS3 architecture including support to old browsers while applying BEM methodology.",
+			"I created customized interactive multimedia cards for mini RPG games, and for the landing page.",
+			"Enhance and streamline the development process by configuring the SWC compiler to improve compilation times by over 300%. Additionally, update and replace outdated modules in Webpack 5.",
+			"Incorporate Email Notification Functionality.",
+		],
+		alt: "coderuner",
+		img_url: "/projects_img/pennybattle.png",
+	},
+	{
+		title: "Meatbrains.com",
+		alt: "ai web",
+		bg_tw: "bg-slate-500",
+		description:
+			"AI web platform to learn about books questions. ( Figma, SvelteKit, TypeScript, PostgreSQL, Azure )",
+		location: "San Francisco C.A. USA",
+		role: "Fullstack developer",
+		stack: "",
+		img_url: "/projects_img/booking/booking.png",
 		points: [
 			"Incorporate the styles with CSS3 based on a figma design.",
 			"Collaborating with cross-functional teams including designers, product managers, and other developers to create a high-quality product.",
 			"Implementing responsive design and ensuring cross-browser compatibility.",
 			"Created new animations on the page to improve the ux.",
 			"Fix bugs, apply clean code, and full responsive..",
-			"[ Figma, SvelteKit, TypeScript, PostgreSQL, Azure ]",
-		],
-	},
-	{
-		company_name: "Frontend Engineer - Freelance",
-		title: "Voxabular.com, San Francisco CA",
-		icon: "/icons/penny.ico",
-		iconBg: "#383E56",
-		date: "Mar 2022 - Feb 2023",
-		points: [
-			"Improve ui/ux and CSS3 architecture including wide support to old browsers and applying BEM methodology.",
-			"Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-			"Implementing responsive design and ensuring cross-browser compatibility.",
-			"Created a complete web-component (a draggable card) which rapidly became a main part of the game.",
-			"Accelerate and optimize the development process adding the swc compiler increasing by 300% ~ of time, saving the team several minutes while developing.",
-			"[ React, Lit-Element, TypeScript, Css, Java, mySQL, Azure ]",
-		],
-	},
-	{
-		company_name: "Freelance ",
-		title: "Frontend Developer",
-		icon: "/icons/fiverr.png",
-		iconBg: "#383E56",
-		date: "jan 2021 - jun 2021",
-		points: [
-			" Front-end development with React JS and 3D models with R3F",
-			"Incorporate successfully improvements of SEO.",
-			" Development of fully responsive websites",
-			"[ React, TypeScript, Css, Nodejs ]",
-		],
-	},
-	{
-		company_name: "Asap Consulting S.A.",
-		title: "Frontend Developer",
-		icon: "/icons/asap.png",
-		iconBg: "#383E56",
-		date: "jan 2020 - dic 2022",
-		points: [
-			"Analyze and estimate stories using Scrum methodology",
-			"Incorporate successfully improvements of SEO.",
-			"Developed web applications using Angular from V8-13",
-			"Refactor Css and add new features and performant animations",
-			"Participating in code reviews and providing constructive feedback to other developers.",
-			"[ React, Angular, TypeScript, Css, Nodejs ]",
-		],
-	},
-	{
-		company_name: "C Language Teaching Assistant",
-		title: "UTN Nacional Technological University ",
-		icon: "/icons/utn.png",
-		iconBg: "#383E56",
-		date: "ago 2019 - en 2020",
-		points: [
-			"Taught to a University initial students C language and C++ by emphasizing conceptual understanding of topics related with data structures and algorithms more known in depth.",
 		],
 	},
 ];

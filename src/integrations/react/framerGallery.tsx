@@ -28,13 +28,13 @@ export const ImageGallery = qwikify$(() => {
 		}),
 		exit: (direction: number) => ({
 			zIndex: 0,
-			x: direction < 0 ? 1000 : -1000,
+			x: direction < 0 ? 1000 : -1000,// 
 			opacity: 0,
 		}),
 		center: {
-			zIndex: 1,
-			x: 0,
+      x: 0,
 			opacity: 1,
+			zIndex: 1,
 		},
 	};
 	return (

@@ -1,21 +1,20 @@
-import { component$, useStyles$, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import "splitting/dist/splitting.css";
 import "splitting/dist/splitting-cells.css";
 import Splitting from "splitting";
-import styles from "./Title.css?inline";
 import { LettersAnimate } from "./Letters";
-import Footer from "./footer";
 import { animate, stagger } from "motion";
 
-const $$ = (selector: string) => document.querySelector(selector);
-
 export const Title = component$(() => {
-	useStyles$(styles);
+	const ref_titleContainer = useSignal<HTMLDivElement>(null!);
+	const ref_titleDescription = useSignal<HTMLDivElement>(null!);
+	const ref_titleBrief = useSignal<HTMLDivElement>(null!);
+	const ref_titleBtn = useSignal<HTMLDivElement>(null!);
 
 	useVisibleTask$(() => {
-		const container = $$(".title__container")!;
+		const container = ref_titleContainer.value;
 		const letters = new LettersAnimate(container, Splitting, ".title__text");
-		// add listeners
+
 		container.addEventListener("mouseenter", () =>
 			letters.runRotateAnimation()
 		);
@@ -23,16 +22,25 @@ export const Title = component$(() => {
 			letters.resetRotateAnimation()
 		);
 
-		const description = $$(".title__description")!;
-
+		const description = ref_titleDescription.value;
 		Splitting({ target: description });
 		const descriptionChars = [...description.querySelectorAll(".char")!];
 
-    const delayBase = 1.3;
+		const hi = document.querySelector("span.hi")!;
+		animate(
+			hi,
+			{
+				opacity: [0, 1],
+				rotateX: ["-90deg", "0"],
+				y: ["-100%", "0"],
+			},
+			{ delay: 0.5, easing: "ease-in" }
+		);
+		const delayBase = 1.3;
 		animate(
 			descriptionChars,
 			{
-				opacity: 1,
+				opacity: [0, 1],
 			},
 			{
 				duration: 1,
@@ -40,25 +48,18 @@ export const Title = component$(() => {
 				easing: (t: number) => Math.pow(t, 3),
 			}
 		);
-
-		const brief = $$(".title__brief")!;
 		animate(
-			brief,
-			{ opacity: 1, transform: "translateY(0)" },
+			ref_titleBrief.value,
+			{ opacity: [0, 1], y: ["180%", "0%"] },
 			{
 				duration: 1,
 				easing: "ease-in-out",
 				delay: delayBase + 1,
 			}
 		);
-
-		const buttonWork = $$(".title__btn")!;
 		animate(
-			buttonWork,
-			{
-				opacity: 1,
-				transform: "translateY(0)",
-			},
+			ref_titleBtn.value,
+			{ opacity: [0, 1], y: ["180%", "0%"] },
 			{
 				duration: 1.5,
 				easing: "ease",
@@ -68,27 +69,25 @@ export const Title = component$(() => {
 	});
 
 	return (
-		<>
-			<div id='home' class='flex flex-col min-h-screen justify-evenly px-4'>
-				<div class='text-xl '>
-					<span class=''>Hi ! </span>
-					<div class='title__container'>
-						<div class='title__text'>I&apos;m Martin Emanuel</div>
-					</div>
-				</div>
-				<div class='title__description text-3xl'>
-					<div class=''>I make</div>
-					<div> cool things for the web.</div>
-				</div>
-				<p class='title__brief text-center'>
-					Web Design | 3D Graphics | Motion
-				</p>
-				<div class='title__btn text-center '>
-					<a href='#work' class='text-center border rounded-lg px-4 py-2'>
-						See my work !
-					</a>
+		<div id='home' class='flex flex-col min-h-screen justify-evenly px-4'>
+			<div class='text-xl '>
+				<span class='hi'>Hi ! </span>
+				<div ref={ref_titleContainer} class='title__container'>
+					<div class='title__text max-w-sm'>I&apos;m Martin Emanuel</div>
 				</div>
 			</div>
-		</>
+			<div ref={ref_titleDescription} class='title__description text-3xl'>
+				<div class=''>I make</div>
+				<div> cool things for the web.</div>
+			</div>
+			<p ref={ref_titleBrief} class='title__brief text-center'>
+				Web Design | 3D Graphics | Motion
+			</p>
+			<div ref={ref_titleBtn} class='title__btn text-center '>
+				<a href='#work' class='text-center border rounded-lg px-4 py-2'>
+					See my work !
+				</a>
+			</div>
+		</div>
 	);
 });
