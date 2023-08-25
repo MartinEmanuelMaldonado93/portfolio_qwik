@@ -19,7 +19,8 @@
     "types": ["node", "vite/client", "better-typescript"],
     "paths": {
       "~/*": ["./*"],
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@ui": ["./src/components/ui/*"]
     }
   },
   "files": ["./.eslintrc.cjs"],
