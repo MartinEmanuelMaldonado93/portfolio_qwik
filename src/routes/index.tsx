@@ -2,7 +2,7 @@ import SvgCursor from "@/components/CursorWrap";
 import { Navbar } from "@/components/Navbar";
 import { Title } from "@/components/Title";
 import { WorkExperience } from "@/components/WorkExperience";
-import Footer from "@/components/Footer";
+import { Footer } from "@/components/Footer";
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import LocomotiveScroll from "locomotive-scroll";
@@ -41,9 +41,9 @@ export default component$(() => {
 			<Navbar />
 			{/* <Title /> */}
 			{/* <WorkExperience /> */}
-      <Experiments />
+			<Experiments />
 			<Footer />
-      <GridBackground />
+			<GridBackground />
 			<SvgCursor reference={ref_cursor} />
 		</div>
 	);
@@ -96,4 +96,3 @@ const InlineComp = () => {
 		</div>
 	);
 };
-
