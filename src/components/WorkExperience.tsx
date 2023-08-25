@@ -1,5 +1,5 @@
 import { component$, useVisibleTask$ } from "@builder.io/qwik";
-import type { CSSProperties } from "react";
+import type { CSSProperties } from "@builder.io/qwik";
 import { workExpData } from "../data/WorkExperience";
 import { animate, inView, stagger } from "motion";
 
