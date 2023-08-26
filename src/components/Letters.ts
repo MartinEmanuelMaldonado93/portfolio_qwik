@@ -1,6 +1,6 @@
 import { animate, stagger, timeline } from "motion";
 import type { AnimationControls } from "motion";
-const DURATION = 0.7;
+const DURATION = 1;
 
 export class LettersAnimate {
 	private charsTextClone?: HTMLElement[];
@@ -36,11 +36,15 @@ export class LettersAnimate {
 
 		this.charsTextClone.forEach((i) => {
 			i.style.opacity = "0";
-			i.style.transform = "translateY(-200%) rotateX(-90deg)";
+      i.style.transformStyle = "preserve-3d";
+			i.style.transform = "translateY(-100%) rotateX(-90deg)";
+      i.style.transformOrigin = "top left";
 		});
 		this.charsText.forEach((i) => {
 			i.style.opacity = "0";
+      i.style.transformStyle = "preserve-3d";
 			i.style.transform = "translateY(-100%) rotateX(-90deg)";
+			i.style.transformOrigin = "top left";
 		});
 
 		this.runFirstRotateAnimation();
@@ -73,7 +77,7 @@ export class LettersAnimate {
 						opacity: 0,
 						transform: "translateY(-100%) rotateX(-90deg)",
 					},
-					{ delay: stagger(0.024) },
+					{ delay: stagger(0.024), easing: "ease" },
 				],
 				[
 					this.charsTextClone,
@@ -81,7 +85,7 @@ export class LettersAnimate {
 						opacity: 1,
 						transform: "translateY(-100%) rotateX(0deg)",
 					},
-					{ delay: stagger(0.024), at: 0 },
+					{ delay: stagger(0.024), at: 0, easing: "ease" },
 				],
 			],
 			{ duration: DURATION }

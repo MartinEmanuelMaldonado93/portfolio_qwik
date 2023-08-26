@@ -42,12 +42,13 @@ export default component$(() => {
 	return (
 		<div class='min-h-screen'>
 			<Navbar />
-			{/* <Title /> */}
-			{/* <WorkExperience /> */}
-			{/* <Experiments /> */}
-      <About />
-      {/* stack dock */}
-      {/* contact */}
+			{/* <Title />
+			<WorkExperience />
+			<Experiments />
+       */}
+			<About />
+			{/* stack dock */}
+			{/* contact */}
 			<Footer />
 			<GridBackground />
 			<SvgCursor reference={ref_cursor} />
