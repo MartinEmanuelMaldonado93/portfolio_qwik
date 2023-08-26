@@ -73,11 +73,11 @@ function inViewItems(el: NodeListOf<HTMLUListElement>) {
 					opacity: [0, 1],
 					scale: [0.9, 1],
 				},
-				{ easing: "ease-out", delay: stagger(0.1), duration: 0.4 }
+				{ easing: "ease-out", delay: stagger(0.1), duration: 0.5 }
 			);
 		},
 		{
-			margin: "-20%",
+			margin: "-25%",
 		}
 	);
 }

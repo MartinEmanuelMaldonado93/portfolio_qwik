@@ -1,5 +1,6 @@
 import { animate, stagger, timeline } from "motion";
 import type { AnimationControls } from "motion";
+const DURATION = 0.7;
 
 export class LettersAnimate {
 	private charsTextClone?: HTMLElement[];
@@ -83,7 +84,7 @@ export class LettersAnimate {
 					{ delay: stagger(0.024), at: 0 },
 				],
 			],
-			{ duration: .8 }
+			{ duration: DURATION }
 		);
 	}
 	resetRotateAnimation() {
@@ -110,7 +111,7 @@ export class LettersAnimate {
 					{ delay: stagger(0.024), at: 0 },
 				],
 			],
-			{ duration: 1 }
+			{ duration: DURATION }
 		);
 	}
 	get CollectionChars() {

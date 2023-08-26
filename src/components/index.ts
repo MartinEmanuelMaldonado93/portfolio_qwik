@@ -6,6 +6,6 @@ export * from './SvgCursor';
 export * from './Title';
 export * from './WorkExperience';
 export * from './_Footer';
-export * from './button/button';
+export * from './ui/Button';
 export * from './router-head/router-head';
 export * from './ui/utils';
