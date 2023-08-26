@@ -4,7 +4,10 @@ type cursorProps = {
 	cursorColor?: CSSProperties["color"];
 	reference: Signal<SVGElement>;
 };
-export default function ({ cursorColor = "#18b6f6", reference }: cursorProps) {
+export const SvgCursor = ({
+	cursorColor = "#18b6f6",
+	reference,
+}: cursorProps) => {
 	return (
 		<svg
 			ref={reference}
@@ -22,4 +25,4 @@ export default function ({ cursorColor = "#18b6f6", reference }: cursorProps) {
 			/>
 		</svg>
 	);
-}
+};

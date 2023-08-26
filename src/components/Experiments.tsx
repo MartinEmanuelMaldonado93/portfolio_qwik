@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 // hsl(182, 39%, 47%)
-export default component$(() => {
+export const Experiments = component$(() => {
 	return (
 		<div class='px-4 min-h-screen '>
 			<div id='big title' class='text-center'>
