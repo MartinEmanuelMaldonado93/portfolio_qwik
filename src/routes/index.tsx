@@ -1,14 +1,16 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import LocomotiveScroll from "locomotive-scroll";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { SvgCursor } from "~/src/components/SvgCursor";
-import { Navbar } from "@/components/Navbar";
-import { Title } from "@/components/Title";
-import { GridBackground } from "@/components/GridBackground";
-import { Experiments } from "@/components/Experiments";
-import { WorkExperience } from "@/components/WorkExperience";
-import { Footer } from "@/components/Footer";
 import { Cursor } from "../utils/Cursor";
+import {
+	Navbar,
+	Title,
+	WorkExperience,
+	Experiments,
+	Footer,
+	GridBackground,
+	SvgCursor,
+} from "@components/index";
 
 // import { routeLoader$ } from "@builder.io/qwik-city";
 // import { createServerClient } from "supabase-auth-helpers-qwik";
