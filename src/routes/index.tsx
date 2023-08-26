@@ -1,14 +1,14 @@
+import type { DocumentHead } from "@builder.io/qwik-city";
 import SvgCursor from "@/components/CursorWrap";
 import { Navbar } from "@/components/Navbar";
 import { Title } from "@/components/Title";
 import { WorkExperience } from "@/components/WorkExperience";
-import { Footer } from "@/components/Footer";
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
 import LocomotiveScroll from "locomotive-scroll";
 import { Cursor } from "../utils/Cursor";
 import { GridBackground } from "../components/GridBackground";
 import Experiments from "../components/Experiments";
+import { Footer } from "../components/Footer";
 
 // import { routeLoader$ } from "@builder.io/qwik-city";
 // import { createServerClient } from "supabase-auth-helpers-qwik";
