@@ -8,7 +8,7 @@ import LocomotiveScroll from "locomotive-scroll";
 import { Cursor } from "../utils/Cursor";
 import { GridBackground } from "../components/GridBackground";
 import Experiments from "../components/Experiments";
-import { Footer } from "../components/Footer";
+// import { Footer } from "../components/Footer";
 
 // import { routeLoader$ } from "@builder.io/qwik-city";
 // import { createServerClient } from "supabase-auth-helpers-qwik";
@@ -42,7 +42,7 @@ export default component$(() => {
 			{/* <Title /> */}
 			{/* <WorkExperience /> */}
 			<Experiments />
-			<Footer />
+			{/* <Footer /> */}
 			<GridBackground />
 			<SvgCursor reference={ref_cursor} />
 		</div>
