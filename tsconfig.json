@@ -18,7 +18,6 @@
     "noEmit": true,
     "types": ["node", "vite/client", "better-typescript"],
     "paths": {
-      "~/*": ["./*"],
       "@components/*": ["./src/components/*"],
       "@ui": ["./src/components/ui/*"]
     }

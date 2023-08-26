@@ -1,13 +1,14 @@
 import { component$ } from "@builder.io/qwik";
-import { useServerTimeLoader } from "../routes/layout";
+// import { useServerTimeLoader } from "../routes/layout";
 
 export const Footer = component$(() => {
-	const serverTime = useServerTimeLoader();
+	// const serverTime = useServerTimeLoader();
+	const serverTime = new Date();
 	return (
 		<footer>
 			<div class='text-center'>
 				<span>
-					© {serverTime.value.date.getFullYear()} Design & Code Martin Emanuel.
+					© {serverTime.getFullYear()} Design & Code Martin Emanuel.
 				</span>
 			</div>
 		</footer>
