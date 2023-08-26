@@ -1,5 +1,4 @@
 import { component$, useVisibleTask$ } from "@builder.io/qwik";
-import type { CSSProperties } from "@builder.io/qwik";
 import { workExpData } from "../data/WorkExperience";
 import { animate, inView, stagger } from "motion";
 
@@ -26,7 +25,7 @@ type CardProps = {
 };
 const CardWorkExperience = component$((props: CardProps) => {
 	useVisibleTask$(() => {
-		inViewItems(document.querySelectorAll(".list-container")!);
+		inViewItems(document.querySelectorAll("ul.list-container")!);
 		// Todo displacement
 	});
 	return (
@@ -63,18 +62,18 @@ const CardWorkExperience = component$((props: CardProps) => {
 });
 
 /** @description animation */
-function inViewItems(el: any) {
+function inViewItems(el: NodeListOf<HTMLUListElement>) {
 	inView(
 		el,
 		({ target }) => {
 			animate(
 				target.querySelectorAll("li")!,
 				{
-					y: ["100%", "0%"],
+					y: ["30%", "0%"],
 					opacity: [0, 1],
 					scale: [0.9, 1],
 				},
-				{ easing: "ease-out", delay: stagger(0.2), duration: 0.8 }
+				{ easing: "ease-out", delay: stagger(0.1), duration: 0.4 }
 			);
 		},
 		{
