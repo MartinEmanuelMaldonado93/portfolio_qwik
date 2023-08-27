@@ -1,8 +1,13 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
-  theme: {
-    extend: {},
+export const content = ["./src/**/*.{js,ts,jsx,tsx,mdx}"];
+export const theme = {
+  extend: {
+    colors: {
+      primary: "hsl(34,145%,3%)",
+      secondary: "hsl(182, 39%, 47%)",
+      "gray-transparent": "hsla(0,0%,83%,.1)",
+      "black-transparent": "hsla(0,0%,0%, .3)",
+    },
   },
-  plugins: [],
 };
+export const plugins = [];

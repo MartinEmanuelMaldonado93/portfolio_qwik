@@ -1,6 +1,15 @@
 /** @type import('eslint').config */
 module.exports = {
 	root: true,
+  parserOptions: {
+    tsconfigRootDir: __dirname,
+    project: ["./tsconfig.json"],
+    ecmaVersion: 2021,
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
 	env: {
 		browser: true,
 		es2021: true,
@@ -12,15 +21,6 @@ module.exports = {
 		"plugin:qwik/recommended",
 	],
 	parser: "@typescript-eslint/parser",
-	parserOptions: {
-		tsconfigRootDir: __dirname,
-		project: ["./tsconfig.json"],
-		ecmaVersion: 2021,
-		sourceType: "module",
-		ecmaFeatures: {
-			jsx: true,
-		},
-	},
 	plugins: ["@typescript-eslint"],
 	rules: {
 		semi: ["error"],
@@ -42,4 +42,5 @@ module.exports = {
 		"@typescript-eslint/no-unnecessary-condition": "warn",
 		"no-mixed-spaces-and-tabs": 0, // disable rule
 	},
+  
 };

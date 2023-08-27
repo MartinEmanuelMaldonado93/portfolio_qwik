@@ -10,8 +10,10 @@ import {
 	Footer,
 	GridBackground,
 	SvgCursor,
+	Contact,
 } from "@components/index";
 import { About } from "@components/About";
+import { Stack } from "@components/Stack";
 
 // import { routeLoader$ } from "@builder.io/qwik-city";
 // import { createServerClient } from "supabase-auth-helpers-qwik";
@@ -42,13 +44,12 @@ export default component$(() => {
 	return (
 		<div class='min-h-screen'>
 			<Navbar />
-			{/* <Title />
+			<Title />
 			<WorkExperience />
 			<Experiments />
-       */}
 			<About />
-			{/* stack dock */}
-			{/* contact */}
+			{/* <Stack /> */}
+			<Contact />
 			<Footer />
 			<GridBackground />
 			<SvgCursor reference={ref_cursor} />

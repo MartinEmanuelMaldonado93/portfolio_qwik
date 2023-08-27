@@ -9,3 +9,4 @@ export * from './_Footer';
 export * from './ui/Button';
 export * from './router-head/router-head';
 export * from './ui/utils';
+export * from './Contact';
