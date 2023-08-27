@@ -14,7 +14,7 @@ export const stackAnchors = {
 				src='https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg'
 				alt='react'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 		<a
@@ -28,7 +28,7 @@ export const stackAnchors = {
 				src='https://upload.wikimedia.org/wikipedia/commons/1/1b/Svelte_Logo.svg'
 				alt='svelte'
 				width='40'
-				height='100%'
+				height='100'
 			/>
 		</a>,
 		<a
@@ -43,7 +43,7 @@ export const stackAnchors = {
 				src='/icons/graphQL.svg'
 				alt='graphql'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 		// <a key={Math.random().toString()}
@@ -57,7 +57,7 @@ export const stackAnchors = {
 		// 		src='https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg'
 		// 		alt='redux'
 		// 		width='40'
-		// 		height='100%'
+		// 		height='100'
 		// 	/>{' '}
 		// </a>,
 		// <a key={Math.random().toString()}
@@ -71,7 +71,7 @@ export const stackAnchors = {
 		// 		src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fvelog.io%2F%40real-bird%2FReact-React-Query&psig=AOvVaw0Rx6_1Odm40ehiDZgO8-Jp&ust=1683427866716000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJCvkNLX3_4CFQAAAAAdAAAAABAV'
 		// 		alt='react-query'
 		// 		width='40'
-		// 		height='100%'
+		// 		height='100'
 		// 	/>{' '}
 		// </a>,
 		<a
@@ -86,7 +86,7 @@ export const stackAnchors = {
 				src='https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg'
 				alt='typescript'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 		<a
@@ -101,7 +101,7 @@ export const stackAnchors = {
 				src='https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg'
 				alt='tailwind'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 		<a
@@ -116,7 +116,7 @@ export const stackAnchors = {
 				src='https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg'
 				alt='sass'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 		<a
@@ -131,7 +131,7 @@ export const stackAnchors = {
 				src='https://camo.githubusercontent.com/179d66ab2b0321726c88a586c4ad38802e7113a3c98c6fd3f0156c01c98cfd14/68747470733a2f2f6672616d657275736572636f6e74656e742e636f6d2f696d616765732f34386861395a52396f5a51475136675a38595566456c50335430412e706e67'
 				alt='framer-motion'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 		<a
@@ -145,7 +145,7 @@ export const stackAnchors = {
 				src='https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg'
 				alt='css3'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 	],
@@ -158,7 +158,7 @@ export const stackAnchors = {
 			rel='noreferrer'
 		>
 			{" "}
-			<img src='/icons/java.png' alt='nodejs' width='40' height='100%' />{" "}
+			<img src='/icons/java.png' alt='nodejs' width='40' height='100' />{" "}
 		</a>,
 		<a
 			key={Math.random().toString()}
@@ -172,7 +172,7 @@ export const stackAnchors = {
 				src='https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg'
 				alt='nodejs'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 		<a
@@ -186,7 +186,7 @@ export const stackAnchors = {
 				src='https://raw.githubusercontent.com/devicons/devicon/master/icons/nestjs/nestjs-plain.svg'
 				alt='nestjs'
 				width='40'
-				height='100%'
+				height='100'
 			/>
 		</a>,
 		<a
@@ -201,7 +201,7 @@ export const stackAnchors = {
 				src='https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg'
 				alt='mongodb'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 		<a
@@ -216,7 +216,7 @@ export const stackAnchors = {
 				src='https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg'
 				alt='postgresql'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 		<a
@@ -231,7 +231,7 @@ export const stackAnchors = {
 				src='https://www.vectorlogo.zone/logos/jestjsio/jestjsio-icon.svg'
 				alt='jest'
 				width='40'
-				height='100%'
+				height='100'
 			/>
 		</a>,
 		<a
@@ -246,7 +246,7 @@ export const stackAnchors = {
 				src='https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg'
 				alt='docker'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 		<a
@@ -261,7 +261,7 @@ export const stackAnchors = {
 				src='https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg'
 				alt='cplusplus'
 				width='40'
-				height='100%'
+				height='100'
 			/>{" "}
 		</a>,
 		// <a key={Math.random().toString()}
@@ -275,7 +275,7 @@ export const stackAnchors = {
 		// 		src='https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg'
 		// 		alt='linux'
 		// 		width='40'
-		// 		height='100%'
+		// 		height='100'
 		// 	/>{' '}
 		// </a>,
 		// <a key={Math.random().toString()}
@@ -288,7 +288,7 @@ export const stackAnchors = {
 		// 		src='https://upload.wikimedia.org/wikipedia/commons/3/3f/Three.js_Icon.svg'
 		// 		alt='threejs'
 		// 		width='40'
-		// 		height='100%'
+		// 		height='100'
 		// 	/>{' '}
 		// </a>,
 	],
