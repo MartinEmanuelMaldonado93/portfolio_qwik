@@ -1,14 +1,13 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { BsDownload } from "@qwikest/icons/bootstrap";
-import { AnimationControls, animate, spring } from "motion";
 
 export const About = component$(() => {
   const toggle = useSignal(false);
 
   return (
     <div id="about" class="min-h-[50vh]">
-      <div class="border-gray-transparent mx-auto flex max-w-md flex-col gap-4 rounded-md border p-4">
-        <div class="mb-2 flex justify-between p-2 ">
+      <div class="border-gray-transparent mx-auto flex max-w-md flex-col  gap-4 rounded-md border p-4 backdrop-brightness-125 lg:max-w-lg">
+        <div class="mb-2 flex justify-between p-2 lg:text-xl">
           <span class="text-secondary">About: </span>
           <a
             href="/pdf/MartinMaldonado.cv.pdf"
@@ -28,7 +27,7 @@ export const About = component$(() => {
         </div>
         <section id="p-container" class="grid px-2">
           <p
-            class="first-p whitespace-pre-line"
+            class="first-p mx-auto max-w-lg whitespace-pre-line lg:text-xl"
             style={{
               gridColumn: "1/1",
               gridRow: "1/1",
@@ -61,7 +60,7 @@ export const About = component$(() => {
           </p>
         </section>
         <button
-          class="mx-auto inline rounded-lg border px-2 hover:border-secondary "
+          class="mx-auto inline rounded-lg border px-2 hover:border-secondary lg:text-xl "
           onClick$={() => {
             toggle.value = !toggle.value;
           }}
@@ -72,4 +71,3 @@ export const About = component$(() => {
     </div>
   );
 });
-//backdrop-hue-rotate-60 backdrop-opacity-75

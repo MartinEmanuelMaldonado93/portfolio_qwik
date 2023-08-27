@@ -4,7 +4,10 @@ import { animate, inView, stagger } from "motion";
 
 export const WorkExperience = component$(() => {
   return (
-    <div id="page-container" class="flex min-h-screen flex-col justify-center">
+    <div
+      id="page-container"
+      class="mx-auto flex min-h-screen max-w-5xl flex-col justify-center"
+    >
       {workExpData.map((data) => (
         <CardWorkExperience key={Math.random().toString()} {...data} />
       ))}
@@ -29,7 +32,11 @@ const CardWorkExperience = component$((props: CardProps) => {
     // Todo displacement
   });
   return (
-    <div class={`${props.bg_tw ? props.bg_tw : "bg-black"} bg-opacity-50`}>
+    <div
+      class={`${
+        props.bg_tw ? props.bg_tw : "bg-black"
+      } rounded-sm bg-opacity-50`}
+    >
       <div class="mx-auto flex max-w-7xl flex-col-reverse items-center justify-evenly p-4 sm:flex-row-reverse">
         <img
           class=" w-full max-w-sm grow rounded-sm object-cover first-letter:shadow-2xl"

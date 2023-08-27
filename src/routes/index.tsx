@@ -15,21 +15,9 @@ import {
 import { About } from "@components/About";
 import { Stack } from "@components/Stack";
 
-// import { routeLoader$ } from "@builder.io/qwik-city";
-// import { createServerClient } from "supabase-auth-helpers-qwik";
-// export const useDBTest = routeLoader$(async (requestEv) => {
-// 	const supabaseClient = createServerClient(
-// 		requestEv.env.get("PUBLIC_SUPABASE_URL")!,
-// 		requestEv.env.get("PUBLIC_SUPABASE_ANON_KEY")!,
-// 		requestEv
-// 	);
-// 	const { data } = await supabaseClient.from("test").select("*");
-// 	return { data };
-// });
-
 export default component$(() => {
   const ref_cursor = useSignal<SVGElement>(null!);
-
+  
   useVisibleTask$(() => {
     new LocomotiveScroll();
 
@@ -48,7 +36,6 @@ export default component$(() => {
       <WorkExperience />
       <Experiments />
       <About />
-      {/* <Stack /> */}
       <Contact />
       <Footer />
       <GridBackground />
@@ -104,3 +91,15 @@ const InlineComp = () => {
     </div>
   );
 };
+
+// import { routeLoader$ } from "@builder.io/qwik-city";
+// import { createServerClient } from "supabase-auth-helpers-qwik";
+// export const useDBTest = routeLoader$(async (requestEv) => {
+// 	const supabaseClient = createServerClient(
+// 		requestEv.env.get("PUBLIC_SUPABASE_URL")!,
+// 		requestEv.env.get("PUBLIC_SUPABASE_ANON_KEY")!,
+// 		requestEv
+// 	);
+// 	const { data } = await supabaseClient.from("test").select("*");
+// 	return { data };
+// });
