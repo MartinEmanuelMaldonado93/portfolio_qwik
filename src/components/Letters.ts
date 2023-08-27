@@ -75,7 +75,7 @@ export class LettersAnimate {
 					this.charsText,
 					{
 						opacity: 0,
-						transform: "translateY(-100%) rotateX(-90deg)",
+						transform: "translateY(-40%) rotateX(-90deg)",
 					},
 					{ delay: stagger(0.024), easing: "ease" },
 				],

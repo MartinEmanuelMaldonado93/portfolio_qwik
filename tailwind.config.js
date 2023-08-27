@@ -8,6 +8,16 @@ export const theme = {
       "gray-transparent": "hsla(0,0%,83%,.1)",
       "black-transparent": "hsla(0,0%,0%, .3)",
     },
+    backgroundImage: {
+      "grid-gray": `
+        linear-gradient(90deg, 
+          rgba(204, 204, 204, 0.03) 1px, 
+          transparent 1px), 
+        linear-gradient(
+          rgba(204, 204, 204, 0.03) 1px, 
+          transparent 1px)`,
+    },
+    backgroundSize: { "grid-size": "50px 50px" },
   },
 };
 export const plugins = [];

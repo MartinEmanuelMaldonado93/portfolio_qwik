@@ -71,9 +71,9 @@ export const Title = component$(() => {
   return (
     <div
       id="home"
-      class="flex min-h-screen flex-col justify-evenly px-4 sm:items-center"
+      class=" flex min-h-screen flex-col justify-evenly px-4 sm:items-center "
     >
-      <div class="text-lg md:text-3xl">
+      <div class="text-2xl md:text-3xl">
         <span class="hi text-center">Hi ! </span>
         <div ref={ref_titleContainer} class="title__container">
           <div class="title__text max-w-sm">I&apos;m Martin Emanuel</div>
@@ -81,8 +81,8 @@ export const Title = component$(() => {
       </div>
       <div
         ref={ref_titleDescription}
-        class="title__description text-3xl
-      md:text-4xl"
+        class="title__description text-4xl
+      md:text-5xl"
       >
         <div class="md:text-center">I make</div>
         <div> cool things for the web.</div>
