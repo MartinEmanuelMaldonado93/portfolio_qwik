@@ -8,15 +8,16 @@
 
 @font-face {
   font-family: 'grotesk';
-  src: url('/fonts/grotesk/AlteHaasGroteskRegular.ttf');
+  src: url('/fonts/grotesk/AlteHaasGroteskRegular.ttf') format('ttf');
+  font-display: swap;
 }
 @font-face {
   font-family: 'inter';
-  src: url('/fonts/Inter/static/Inter-Regular.ttf');
+  src: url('/fonts/Inter/static/Inter-Regular.ttf') format('ttf');
 }
 @font-face {
   font-family: 'poppins';
-  src: url('/fonts/poppins-400.woff2');
+  src: url('/fonts/poppins-400.woff2') format('woff2');
 }
 /**
  * WHAT IS THIS FILE?

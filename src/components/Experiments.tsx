@@ -1,6 +1,7 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { animate } from "motion";
-import { ExperimentsType, experiments_data } from "../data/ExperimentsData";
+import type { ExperimentsType} from "../data/ExperimentsData";
+import { experiments_data } from "../data/ExperimentsData";
 
 export const Experiments = component$(() => {
   return (

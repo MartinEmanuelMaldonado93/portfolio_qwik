@@ -13,7 +13,7 @@ import {
   Contact,
 } from "@components/index";
 import { About } from "@components/About";
-import { Stack } from "@components/Stack";
+// import { Stack } from "@components/Stack";
 
 export default component$(() => {
   const ref_cursor = useSignal<SVGElement>(null!);

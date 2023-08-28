@@ -1,5 +1,6 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import { BsDownload } from "@qwikest/icons/bootstrap";
+import { Image } from "@unpic/qwik";
 
 export const About = component$(() => {
   const toggle = useSignal(false);
@@ -19,9 +20,10 @@ export const About = component$(() => {
           </a>
         </div>
         <div class="img-container my-2">
-          <img
+          <Image
             class="mx-auto aspect-square rounded-sm object-cover grayscale transition-[filter] duration-700 hover:grayscale-0"
             src="/profile_photo/profile_ph.jpg"
+            alt="profile photo"
             width={200}
           />
         </div>

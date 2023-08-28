@@ -1,15 +1,15 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import "splitting/dist/splitting.css";
-import "splitting/dist/splitting-cells.css";
-import Splitting from "splitting";
-import { LettersAnimate } from "./Letters";
 import { animate, stagger } from "motion";
+import Splitting from "splitting";
+import "splitting/dist/splitting-cells.css";
+import "splitting/dist/splitting.css";
+import { LettersAnimate } from "./Letters";
 
 export const Title = component$(() => {
   const ref_titleContainer = useSignal<HTMLDivElement>(null!);
   const ref_titleDescription = useSignal<HTMLDivElement>(null!);
   const ref_titleBrief = useSignal<HTMLDivElement>(null!);
-  const ref_titleBtn = useSignal<HTMLDivElement>(null!);
+  // const ref_titleBtn = useSignal<HTMLDivElement>(null!);
 
   useVisibleTask$(() => {
     const container = ref_titleContainer.value;
@@ -57,15 +57,15 @@ export const Title = component$(() => {
         delay: delayBase + 1,
       },
     );
-    animate(
-      ref_titleBtn.value,
-      { opacity: [0, 1], y: ["180%", "0%"] },
-      {
-        duration: 1.5,
-        easing: "ease",
-        delay: delayBase + 2,
-      },
-    );
+    // animate(
+    //   ref_titleBtn.value,
+    //   { opacity: [0, 1], y: ["180%", "0%"] },
+    //   {
+    //     duration: 1.5,
+    //     easing: "ease",
+    //     delay: delayBase + 2,
+    //   },
+    // );
   });
 
   return (
@@ -90,11 +90,6 @@ export const Title = component$(() => {
       <p ref={ref_titleBrief} class="title__brief text-center">
         Web Design | 3D Graphics | Motion
       </p>
-      <div ref={ref_titleBtn} class="title__btn text-center ">
-        <a href="#work" class="rounded-lg   px-4 py-2 text-center">
-          {/* See my work ! */}
-        </a>
-      </div>
     </div>
   );
 });
