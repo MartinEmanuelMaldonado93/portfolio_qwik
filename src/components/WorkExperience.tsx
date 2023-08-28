@@ -1,6 +1,7 @@
-import { component$, useVisibleTask$ } from "@builder.io/qwik";
-import { workExpData } from "../data/WorkExperience";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { Image } from "@unpic/qwik";
 import { animate, inView, stagger } from "motion";
+import { workExpData } from "../data/WorkExperience";
 
 export const WorkExperience = component$(() => {
   return (
@@ -38,12 +39,13 @@ const CardWorkExperience = component$((props: CardProps) => {
       } rounded-sm bg-opacity-50`}
     >
       <div class="mx-auto flex max-w-7xl flex-col-reverse items-center justify-evenly p-4 sm:flex-row-reverse">
-        <img
+        <Image
           class=" w-full max-w-sm grow rounded-sm object-cover first-letter:shadow-2xl"
           src={props.img_url}
           alt={props.alt}
           width={200}
           height={250}
+          layout="constrained"
         />
         <div class="p-4">
           <div class="text-4xl font-bold">
@@ -55,7 +57,7 @@ const CardWorkExperience = component$((props: CardProps) => {
           <ul class="list-container max-w-lg text-gray-300">
             {props.points.map((item) => (
               <li
-                key={Math.random().toString()}
+                key={Math.random().toString() + item}
                 class="mt-2 list-disc opacity-0"
               >
                 {item}

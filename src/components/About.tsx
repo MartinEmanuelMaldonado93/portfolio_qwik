@@ -12,7 +12,7 @@ export const About = component$(() => {
           <a
             href="/pdf/MartinMaldonado.cv.pdf"
             target="_blank"
-            class="underline underline-offset-1"
+            class="border-gray-transparent rounded-md border px-2"
           >
             <span class="pr-2">Resume</span>
             <BsDownload class="inline  " />
