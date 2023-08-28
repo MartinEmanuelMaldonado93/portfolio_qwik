@@ -9,7 +9,6 @@ export const Title = component$(() => {
   const ref_titleContainer = useSignal<HTMLDivElement>(null!);
   const ref_titleDescription = useSignal<HTMLDivElement>(null!);
   const ref_titleBrief = useSignal<HTMLDivElement>(null!);
-  // const ref_titleBtn = useSignal<HTMLDivElement>(null!);
 
   useVisibleTask$(() => {
     const container = ref_titleContainer.value;
@@ -26,16 +25,6 @@ export const Title = component$(() => {
     Splitting({ target: description });
     const descriptionChars = [...description.querySelectorAll(".char")!];
 
-    const hi = document.querySelector("span.hi")!;
-    animate(
-      hi,
-      {
-        opacity: [0, 1],
-        rotateX: ["-90deg", "0"],
-        y: ["-100%", "0"],
-      },
-      { delay: 0.5, easing: "ease-in" },
-    );
     const delayBase = 1.3;
     animate(
       descriptionChars,
@@ -57,15 +46,6 @@ export const Title = component$(() => {
         delay: delayBase + 1,
       },
     );
-    // animate(
-    //   ref_titleBtn.value,
-    //   { opacity: [0, 1], y: ["180%", "0%"] },
-    //   {
-    //     duration: 1.5,
-    //     easing: "ease",
-    //     delay: delayBase + 2,
-    //   },
-    // );
   });
 
   return (
@@ -74,9 +54,11 @@ export const Title = component$(() => {
       class=" flex min-h-screen flex-col justify-evenly px-4 sm:items-center "
     >
       <div class="text-2xl md:text-3xl">
-        <span class="hi text-center">Hi ! </span>
+        <span class="hi animate-fade-in text-center opacity-0">Hi ! </span>
         <div ref={ref_titleContainer} class="title__container">
-          <div class="title__text max-w-sm">I&apos;m Martin Emanuel</div>
+          <div class="title__text max-w-sm will-change-transform">
+            I&apos;m Martin Emanuel
+          </div>
         </div>
       </div>
       <div

@@ -37,6 +37,14 @@ export const theme = {
         '"Noto Color Emoji"',
       ],
     },
+    animation: {
+      "fade-in": "fadein 1.5s ease .8s forwards",
+    },
+    keyframes: {
+      fadein: {
+        to: { opacity: 1 },
+      },
+    },
   },
 };
 export const plugins = [];

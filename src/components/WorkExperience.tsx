@@ -1,7 +1,7 @@
 import { component$, useVisibleTask$ } from "@builder.io/qwik";
 import { Image } from "@unpic/qwik";
 import { animate, stagger } from "motion";
-import type { CardProps} from "../data/WorkExperience";
+import type { CardProps } from "../data/WorkExperience";
 import { workExpData } from "../data/WorkExperience";
 
 export const WorkExperience = component$(() => {
@@ -70,31 +70,16 @@ const CardWorkExperience = component$((props: CardProps) => {
 });
 
 /** @description animation */
-function inViewItems(el: NodeListOf<HTMLUListElement>) {
-  // inView(
-  //   el,
-  //   ({ target }) => {
-  //     animate(
-  //       target.querySelectorAll("li")!,
-  //       {
-  //         y: ["30%", "0%"],
-  //         opacity: [0, 1],
-  //         scale: [0.9, 1],
-  //       },
-  //       { easing: "ease-out", delay: stagger(0.1), duration: 0.3 },
-  //     );
-  //   },
-  //   {
-  //     margin: "-25%",
-  //   },
-  // );
-  animate(
-    el,
-    {
-      y: ["30%", "0%"],
-      opacity: [0, 1],
-      scale: [0.9, 1],
-    },
-    { easing: "ease-out", delay: stagger(0.1), duration: 0.3 },
-  );
+function inViewItems(uls: NodeListOf<HTMLUListElement>) {
+  uls.forEach((ul) => {
+    animate(
+      ul.querySelectorAll("li")!,
+      {
+        y: ["30%", "0%"],
+        opacity: [0, 1],
+        scale: [0.9, 1],
+      },
+      { easing: "ease-out", delay: stagger(0.1), duration: 0.3 },
+    );
+  });
 }
