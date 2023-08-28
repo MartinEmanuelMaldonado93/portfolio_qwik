@@ -1,83 +1,76 @@
-import { component$ } from "@builder.io/qwik";
-// hsl(182, 39%, 47%)
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { animate } from "motion";
+import { ExperimentsType, experiments_data } from "../data/ExperimentsData";
+
 export const Experiments = component$(() => {
   return (
-    <div class="mx-auto mt-8 flex min-h-screen max-w-5xl flex-col items-center px-4">
-      <div
-        id="big title"
-        class="mx-auto text-center text-3xl font-grotesk" 
-      >
+    <div class="mx-auto mb-32 mt-60 flex min-h-screen max-w-5xl flex-col items-center px-4">
+      <div id="big title" class="font-grotesk mx-auto text-center text-4xl">
         3D Graphics - Motion - Creative code
       </div>
-      <div class="max-w-2xl p-4 text-center">
+      <div class="font-grotesk max-w-2xl p-4 text-center">
         A web-based collection of projects to produce cutting-edge visual
         effects and make innovative websites.
       </div>
-      <div class="card my-4 w-full  max-w-2xl">
-        <div class="border-gray-transparent bg-black-transparent rounded-md border px-2 py-2 backdrop-hue-rotate-60  transition-all duration-300 hover:border-secondary hover:shadow-xl">
-          <div class="flex  items-center justify-between">
-            <div>
-              <div class="text-2xl capitalize">sub title </div>
-              <div class="text-lg ">Ray marching inoasdojasd aosqw</div>
-              <div class="flex gap-2">
-                <span class="rounded-sm px-1 capitalize text-gray-200 opacity-70 ">
-                  shaders
-                </span>
-                <span class="rounded-sm px-1 capitalize text-gray-200 opacity-70">
-                  three.js
-                </span>
-                <span class="rounded-sm px-1 capitalize text-gray-200 opacity-70 ">
-                  r3f
-                </span>
-              </div>
-            </div>
-            <img
-              class="max-w-sm rounded-md object-scale-down shadow-2xl"
-              src="/projects_img/open.png"
-              alt={"qscyoo"}
-              width={"150"}
-              height={"150"}
-            />
-          </div>
-        </div>
-      </div>
+      {experiments_data.map((item, index) => (
+        <Card key={Math.random()} {...item} index={index} />
+      ))}
     </div>
   );
 });
 
-type CardProps = {
-  title: string;
-  description: string;
-  stack: string[];
-  img_url: string;
-  alt: string;
-};
-const Card = component$((props: CardProps) => {
+const Card = component$((props: ExperimentsType) => {
+  const el = useSignal<HTMLDivElement>(null!);
+  useVisibleTask$(() => {
+    animate(
+      el.value,
+      {
+        opacity: [0, 1],
+        y: ["30%", "0"],
+      },
+      {
+        delay: 0.3 * props.index!,
+        easing: "ease-out",
+        duration: 0.5,
+      },
+    );
+  });
   return (
-    <div class="card my-4 w-full  max-w-2xl">
-      <div class="border-gray-transparent bg-black-transparent rounded-md border px-2 py-2 backdrop-hue-rotate-60  transition-all duration-300 hover:border-secondary hover:shadow-xl">
+    <div ref={el} class="card my-2 w-full max-w-2xl">
+      <div class="border-gray-transparent bg-black-transparent rounded-md border px-2 py-2 -backdrop-hue-rotate-15  transition-all duration-300 hover:border-secondary hover:shadow-xl">
         <div class="flex  items-center justify-between">
           <div>
-            <div class="text-2xl capitalize">{props.title}</div>
-            <div class="text-lg ">{props.description}</div>
-            <div class="flex gap-2">
+            <div class="text-2xl capitalize">
+              <a
+                href={props.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="cursor-pointer"
+              >
+                {props.title}
+              </a>
+            </div>
+            <div class="text-md text-gray-500">{props.brief}</div>
+            <div class="flex gap-2 ">
               {props.stack.map((item) => (
                 <span
                   key={Math.random()}
-                  class="rounded-sm px-1 capitalize text-gray-200 opacity-70 "
+                  class="md:text-md overflow-hidden text-ellipsis break-normal rounded-sm px-1 text-xs  capitalize text-gray-200 opacity-70 sm:text-sm "
                 >
                   {item}
                 </span>
               ))}
             </div>
           </div>
-          <img
-            class="max-w-sm rounded-md object-scale-down shadow-2xl"
-            src={props.img_url}
-            alt={props.alt}
-            width={"150"}
-            height={"150"}
-          />
+          {props.img_url && (
+            <img
+              class="max-w-sm rounded-md object-scale-down shadow-2xl"
+              src={props.img_url}
+              alt={props.alt}
+              width={"150"}
+              height={"150"}
+            />
+          )}
         </div>
       </div>
     </div>

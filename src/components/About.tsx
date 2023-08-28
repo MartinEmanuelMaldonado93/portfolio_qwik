@@ -32,7 +32,6 @@ export const About = component$(() => {
               gridColumn: "1/1",
               gridRow: "1/1",
               transition: "opacity .5s",
-              transitionDelay: "0.5s",
               opacity: toggle.value ? "0" : "1",
             }}
           >
@@ -43,12 +42,11 @@ export const About = component$(() => {
             languages like C...
           </p>
           <p
-            class="second-p"
+            class="second-p lg:text-xl"
             style={{
               gridColumn: "1/1",
               gridRow: "1/1",
               transition: "opacity .5s",
-              transitionDelay: "0.3s",
               opacity: toggle.value ? "1" : "0",
             }}
           >
