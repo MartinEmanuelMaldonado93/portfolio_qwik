@@ -1,7 +1,7 @@
-import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, useVisibleTask$ } from "@builder.io/qwik";
 import { Image } from "@unpic/qwik";
 import { animate, inView, stagger } from "motion";
-import { workExpData } from "../data/WorkExperience";
+import { CardProps, workExpData } from "../data/WorkExperience";
 
 export const WorkExperience = component$(() => {
   return (
@@ -16,17 +16,6 @@ export const WorkExperience = component$(() => {
   );
 });
 
-type CardProps = {
-  title: string;
-  location: string;
-  role: string | string[];
-  description: string;
-  stack?: string;
-  points: string[];
-  img_url: string;
-  bg_tw?: string;
-  alt: string;
-};
 const CardWorkExperience = component$((props: CardProps) => {
   useVisibleTask$(() => {
     inViewItems(document.querySelectorAll("ul.list-container")!);
@@ -48,13 +37,22 @@ const CardWorkExperience = component$((props: CardProps) => {
           layout="constrained"
         />
         <div class="p-4">
-          <div class="text-4xl font-bold">
-            {props.title}{" "}
-            <span class="text-sm text-gray-500">{props.location}</span>
+          <div class="my-2 text-4xl font-bold">
+            {props.link ? (
+              <a href={props.link} target="_blank">
+                {props.title}
+              </a>
+            ) : (
+              props.title
+            )}
+            <span class="pl-2 text-sm ">{props.location}</span>
           </div>
-          <div>{props.role}</div>
+          <div class="text-gray-400">
+            {props.role}
+            <span class="pl-2 text-gray-300">{props.date}</span>
+          </div>
           <p class="max-w-sm py-5">{props.description}</p>
-          <ul class="list-container max-w-lg text-gray-300">
+          <ul class="list-container max-w-lg text-gray-200">
             {props.points.map((item) => (
               <li
                 key={Math.random().toString() + item}
@@ -82,7 +80,7 @@ function inViewItems(el: NodeListOf<HTMLUListElement>) {
           opacity: [0, 1],
           scale: [0.9, 1],
         },
-        { easing: "ease-out", delay: stagger(0.1), duration: 0.5 },
+        { easing: "ease-out", delay: stagger(0.1), duration: 0.4 },
       );
     },
     {

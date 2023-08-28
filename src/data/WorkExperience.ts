@@ -1,6 +1,4 @@
-import type { CSSProperties } from "@builder.io/qwik";
-
-type CardProps = {
+export type CardProps = {
   title: string;
   location: string;
   date?: string;
@@ -11,15 +9,18 @@ type CardProps = {
   img_url: string;
   bg_tw?: string;
   alt: string;
+  link?: string;
 };
 
 export const workExpData: CardProps[] = [
   {
     title: "Meatbrains.com",
+    date: "jan 2023 - currently",
     alt: "ai web",
+    link: "https://meatbrains.com/",
     bg_tw: "bg-slate-600",
     description:
-      "AI web platform to learn about books questions. ( Figma, SvelteKit, TypeScript, PostgreSQL, Azure )",
+      "AI web platform to learn about books questions. (Figma, SvelteKit, TypeScript, PostgreSQL, Azure)",
     location: "San Francisco C.A. USA",
     role: "Fullstack developer",
     stack: "",
@@ -35,8 +36,9 @@ export const workExpData: CardProps[] = [
   {
     title: "Voxabular.com",
     location: "San Francisco C.A. USA",
+    link: "https://play.google.com/store/apps/details?id=com.tiltstudios.voxabular&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pli=1",
     role: "Fullstack developer",
-    date: "",
+    date: "mar 2022 - feb 2023",
     description:
       "Learning Platform Web Game. ( TypeScript, React, Lit, Three.js, WebGL, Css3, Capacitor for mobile )",
     points: [
@@ -69,6 +71,7 @@ export const workExpData: CardProps[] = [
     title: "Asap Consulting S.A.",
     role: "Frontend Developer",
     date: "jan 2020 - dic 2022",
+    link: "https://asap-consulting.net/lockers-logro-optimizar-sus-pedidos-con-una-plataforma-digital-de-asap-consulting/",
     description: " ( React, Angular, TypeScript, Css, Nodejs )",
     alt: "asap",
     img_url: "/projects_img/lockers.jpg",
@@ -87,9 +90,10 @@ export const workExpData: CardProps[] = [
     role: "C/C++ Language Teaching Assistant",
     date: "ago 2019 - en 2020",
     alt: "utn",
-    description: "",
+    link: "https://www.frba.utn.edu.ar/",
+    description: "(Eclipse, MingW, Linux, DSA)",
     img_url: "/projects_img/utn.jpg",
-    location: "Argentina",
+    location: "Buenos Aires, Argentina",
     bg_tw: "bg-slate-400",
     points: [
       "Emphasizing conceptual understanding of topics related with data structures and algorithms more known in depth.",
