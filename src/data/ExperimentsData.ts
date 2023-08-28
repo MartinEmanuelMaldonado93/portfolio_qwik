@@ -43,7 +43,7 @@ export const experiments_data: ExperimentsType[] = [
     stack: [
       "Qwik",
       "Motion One",
-      "Creative code",
+      "Splitting.js",
       "Locomotive-scroll",
       "Tailwind",
     ],

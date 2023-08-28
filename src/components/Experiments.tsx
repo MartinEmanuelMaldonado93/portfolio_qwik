@@ -1,12 +1,26 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { animate } from "motion";
-import type { ExperimentsType} from "../data/ExperimentsData";
+import Splitting from "splitting";
+import type { ExperimentsType } from "../data/ExperimentsData";
 import { experiments_data } from "../data/ExperimentsData";
 
 export const Experiments = component$(() => {
+  const title = useSignal<HTMLDivElement>();
+
+  useVisibleTask$(() => {
+    Splitting({ target: title.value });
+    const chars = title.value!.querySelectorAll(".char")!;
+    chars.forEach((char) => {
+      //todo animations
+    });
+  });
   return (
     <div class="mx-auto mb-32 mt-60 flex min-h-screen max-w-5xl flex-col items-center px-4">
-      <div id="big title" class="font-grotesk mx-auto text-center text-4xl">
+      <div
+        ref={title}
+        id="big title"
+        class="font-grotesk mx-auto text-center text-4xl"
+      >
         3D Graphics - Motion - Creative code
       </div>
       <div class="font-grotesk max-w-2xl p-4 text-center">

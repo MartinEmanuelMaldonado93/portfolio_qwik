@@ -40,7 +40,7 @@ const CardWorkExperience = component$((props: CardProps) => {
         <div class="p-4">
           <div class="my-2 text-4xl font-bold">
             {props.link ? (
-              <a href={props.link} target="_blank">
+              <a href={props.link} target="_blank" class='transition-all duration-150 after:'>
                 {props.title}
               </a>
             ) : (
@@ -83,3 +83,24 @@ function inViewItems(uls: NodeListOf<HTMLUListElement>) {
     );
   });
 }
+//title
+    /**
+     * 
+     * content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--text-color);
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 350ms ease;
+        
+        :hover {
+        &::after {
+          transform-origin: left;
+          transform: scaleX(1);
+        }
+      }
+     */

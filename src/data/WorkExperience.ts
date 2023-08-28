@@ -97,8 +97,8 @@ export const workExpData: CardProps[] = [
     bg_tw: "bg-slate-400",
     points: [
       "Emphasizing conceptual understanding of topics related with data structures and algorithms more known in depth.",
-      "Excalidraw representation of data sctructures",
-      "Mingw and others binaries setup/assistance",
+      "Excalidraw tool for representation of data sctructures",
+      "Assistance with Setting Up Mingw and Other Binaries",
     ],
   },
 ];
