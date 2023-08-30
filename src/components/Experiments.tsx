@@ -1,29 +1,32 @@
-import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
-import { animate } from "motion";
+import {
+  component$,
+  useSignal,
+  useStyles$,
+  useVisibleTask$,
+} from "@builder.io/qwik";
+import { animate, stagger } from "motion";
 import Splitting from "splitting";
 import type { ExperimentsType } from "../data/ExperimentsData";
 import { experiments_data } from "../data/ExperimentsData";
+import style from "./Experiments.css?inline";
 
 export const Experiments = component$(() => {
-  const title = useSignal<HTMLDivElement>();
-
+  const title = useSignal<HTMLDivElement>(null!);
+  useStyles$(style);
+  
   useVisibleTask$(() => {
-    Splitting({ target: title.value });
-    const chars = title.value!.querySelectorAll(".char")!;
-    chars.forEach((char) => {
-      //todo animations
-    });
+    titleFadeIn(title.value);
   });
   return (
     <div class="mx-auto mb-16 mt-60 flex min-h-screen max-w-5xl flex-col items-center px-4">
       <div
         ref={title}
         id="big title"
-        class="font-grotesk mx-auto text-center text-4xl"
+        class="slide-vertical mx-auto text-center font-grotesk text-4xl"
       >
         3D Graphics - Motion - Creative code
       </div>
-      <div class="font-grotesk max-w-2xl p-4 text-center">
+      <div class="max-w-2xl p-4 text-center font-grotesk">
         A web-based collection of projects to produce cutting-edge visual
         effects and make innovative websites.
       </div>
@@ -35,24 +38,24 @@ export const Experiments = component$(() => {
 });
 
 const Card = component$((props: ExperimentsType) => {
-  const el = useSignal<HTMLDivElement>(null!);
+  const card = useSignal<HTMLDivElement>(null!);
   useVisibleTask$(() => {
     animate(
-      el.value,
+      card.value,
       {
         opacity: [0, 1],
         y: ["30%", "0"],
       },
       {
-        delay: 0.3 * props.index!,
-        easing: "ease-out",
-        duration: 0.5,
+        delay: 0.1 * props.index!,
+        easing: "ease-in",
+        duration: 0.3,
       },
     );
   });
   return (
-    <div ref={el} class="card my-2 w-full max-w-2xl">
-      <div class="border-gray-transparent bg-black-transparent rounded-md border px-2 py-2 -backdrop-hue-rotate-15  transition-all duration-300 hover:border-secondary hover:shadow-xl">
+    <div ref={card} class="card my-2 w-full max-w-2xl">
+      <div class="rounded-md border border-gray-transparent bg-black-transparent px-2 py-2 -backdrop-hue-rotate-15  transition-all duration-300 hover:border-secondary hover:shadow-xl">
         <div class="flex  items-center justify-between">
           <div>
             <div class="text-2xl capitalize">
@@ -91,3 +94,21 @@ const Card = component$((props: ExperimentsType) => {
     </div>
   );
 });
+
+function titleFadeIn(el: HTMLDivElement) {
+  Splitting({ target: el });
+  const chars = el.querySelectorAll(".char")!;
+
+  animate(
+    chars,
+    {
+      opacity: [0, 1],
+      // x: ['-40%', '0%']
+    },
+    {
+      easing: "ease-in",
+      delay: stagger(0.02, { start: 0.2 }),
+      duration: 0.5,
+    },
+  );
+}

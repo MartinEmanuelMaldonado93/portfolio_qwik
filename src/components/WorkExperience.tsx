@@ -24,7 +24,6 @@ const CardWorkExperience = component$((props: CardProps) => {
       animateItemsInView(ulRef.value!);
       // Todo displacement/effect to photos
     },
-    { strategy: "document-ready" },
   );
   return (
     <div
@@ -34,7 +33,7 @@ const CardWorkExperience = component$((props: CardProps) => {
     >
       <div class="mx-auto flex max-w-7xl flex-col-reverse items-center justify-evenly p-4 sm:flex-row-reverse">
         <Image
-          class=" w-full max-w-sm grow rounded-sm object-cover first-letter:shadow-2xl"
+          class="w-full max-w-sm grow rounded-sm object-cover first-letter:shadow-2xl"
           src={props.img_url}
           alt={props.alt}
           width={200}
@@ -63,10 +62,7 @@ const CardWorkExperience = component$((props: CardProps) => {
           <p class="max-w-sm py-5">{props.description}</p>
           <ul ref={ulRef} class="list-container max-w-lg text-gray-200">
             {props.points.map((item) => (
-              <li
-                key={Math.random() + item}
-                class="mt-2 translate-y-[30%] scale-90 list-disc opacity-0 transition-transform duration-300"
-              >
+              <li key={Math.random() + item} class="mt-2 list-disc">
                 {item}
               </li>
             ))}
@@ -77,23 +73,26 @@ const CardWorkExperience = component$((props: CardProps) => {
   );
 });
 
-function animateItemsInView(ul: HTMLUListElement) {
+function animateItemsInView(ul: HTMLUListElement): void {
+  const items = ul.querySelectorAll("li");
+  if (!items) throw new Error("li elements not founded");
+
+  items.forEach((li) => (li.style.opacity = "0")); //initial state
+
+  // renders only when reach 25% of container
   inView(
     ul,
-    ({ target }) => {
-      const listItems = target.querySelectorAll("li");
-      if(!listItems) throw new Error('li elements not founded');
-
+    () => {
       animate(
-        listItems,
+        items,
         {
-          y: ["0%"],
-          opacity: [1],
-          scale: [1],
+          y: ["100%", "0%"],
+          opacity: [null, 1],
+          scale: [0.9, 1],
         },
-        { easing: "ease-in-out", delay: stagger(0.2), duration: 0.5 },
+        { easing: "ease-in-out", delay: stagger(0.1), duration: 0.4 },
       );
     },
-    { margin: "-35%" },
+    { margin: "-25%" },
   );
 }

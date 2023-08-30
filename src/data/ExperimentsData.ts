@@ -12,7 +12,7 @@ export const experiments_data: ExperimentsType[] = [
   {
     title: "Awesome modern gallery",
     alt: "Awesome modern gallery",
-    brief: "Showcase inspirede by alcre.co.kr and supah tutorial",
+    brief: "Showcase inspired by alcre.co.kr and supah tutorial",
     img_url: "",
     link: "https://awesome-gallery-glsl.vercel.app/",
     stack: ["React", "WebGL", "Three.js", "Gsap", "r3f"],

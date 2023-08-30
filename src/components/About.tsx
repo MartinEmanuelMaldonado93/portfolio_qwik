@@ -46,7 +46,7 @@ export const About = component$(() => {
             style={{
               gridColumn: "1/1",
               gridRow: "1/1",
-              transition: "opacity .5s",
+              transition: "opacity 1s",
               opacity: toggle.value ? "1" : "0",
             }}
           >
