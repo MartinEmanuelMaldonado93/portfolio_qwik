@@ -1,6 +1,6 @@
-import { component$, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { Image } from "@unpic/qwik";
-import { animate, stagger } from "motion";
+import { animate, inView, stagger } from "motion";
 import type { CardProps } from "../data/WorkExperience";
 import { workExpData } from "../data/WorkExperience";
 
@@ -18,10 +18,14 @@ export const WorkExperience = component$(() => {
 });
 
 const CardWorkExperience = component$((props: CardProps) => {
-  useVisibleTask$(() => {
-    inViewItems(document.querySelectorAll("ul.list-container")!);
-    // Todo displacement
-  });
+  const ulRef = useSignal<HTMLUListElement>();
+  useVisibleTask$(
+    () => {
+      animateItemsInView(ulRef.value!);
+      // Todo displacement/effect to photos
+    },
+    { strategy: "document-ready" },
+  );
   return (
     <div
       class={`${
@@ -40,7 +44,11 @@ const CardWorkExperience = component$((props: CardProps) => {
         <div class="p-4">
           <div class="my-2 text-4xl font-bold">
             {props.link ? (
-              <a href={props.link} target="_blank" class='transition-all duration-150 after:'>
+              <a
+                href={props.link}
+                target="_blank"
+                class="after: transition-all duration-150"
+              >
                 {props.title}
               </a>
             ) : (
@@ -53,11 +61,11 @@ const CardWorkExperience = component$((props: CardProps) => {
             <span class="pl-2 text-gray-300">{props.date}</span>
           </div>
           <p class="max-w-sm py-5">{props.description}</p>
-          <ul class="list-container max-w-lg text-gray-200">
+          <ul ref={ulRef} class="list-container max-w-lg text-gray-200">
             {props.points.map((item) => (
               <li
-                key={Math.random().toString() + item}
-                class="mt-2 list-disc opacity-0"
+                key={Math.random() + item}
+                class="mt-2 translate-y-[30%] scale-90 list-disc opacity-0 transition-transform duration-300"
               >
                 {item}
               </li>
@@ -69,38 +77,23 @@ const CardWorkExperience = component$((props: CardProps) => {
   );
 });
 
-/** @description animation */
-function inViewItems(uls: NodeListOf<HTMLUListElement>) {
-  uls.forEach((ul) => {
-    animate(
-      ul.querySelectorAll("li")!,
-      {
-        y: ["30%", "0%"],
-        opacity: [0, 1],
-        scale: [0.9, 1],
-      },
-      { easing: "ease-out", delay: stagger(0.1), duration: 0.3 },
-    );
-  });
+function animateItemsInView(ul: HTMLUListElement) {
+  inView(
+    ul,
+    ({ target }) => {
+      const listItems = target.querySelectorAll("li");
+      if(!listItems) throw new Error('li elements not founded');
+
+      animate(
+        listItems,
+        {
+          y: ["0%"],
+          opacity: [1],
+          scale: [1],
+        },
+        { easing: "ease-in-out", delay: stagger(0.2), duration: 0.5 },
+      );
+    },
+    { margin: "-35%" },
+  );
 }
-//title
-    /**
-     * 
-     * content: "";
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: var(--text-color);
-        transform-origin: right;
-        transform: scaleX(0);
-        transition: transform 350ms ease;
-        
-        :hover {
-        &::after {
-          transform-origin: left;
-          transform: scaleX(1);
-        }
-      }
-     */

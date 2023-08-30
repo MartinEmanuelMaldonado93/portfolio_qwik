@@ -15,7 +15,7 @@ export const Experiments = component$(() => {
     });
   });
   return (
-    <div class="mx-auto mb-32 mt-60 flex min-h-screen max-w-5xl flex-col items-center px-4">
+    <div class="mx-auto mb-16 mt-60 flex min-h-screen max-w-5xl flex-col items-center px-4">
       <div
         ref={title}
         id="big title"

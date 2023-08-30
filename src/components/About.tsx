@@ -7,13 +7,13 @@ export const About = component$(() => {
 
   return (
     <div id="about" class="min-h-[50vh]">
-      <div class="border-gray-transparent mx-auto flex max-w-md flex-col  gap-4 rounded-md border p-4 backdrop-brightness-125 lg:max-w-lg">
+      <div class="mx-auto flex max-w-md flex-col gap-4  rounded-md border border-gray-transparent p-4 backdrop-brightness-125 lg:max-w-lg">
         <div class="mb-2 flex justify-between p-2 lg:text-xl">
           <span class="text-secondary">About: </span>
           <a
             href="/pdf/MartinMaldonado.cv.pdf"
             target="_blank"
-            class="border-gray-transparent rounded-md border px-2"
+            class="rounded-md border border-gray-transparent px-2"
           >
             <span class="pr-2">Resume</span>
             <BsDownload class="inline  " />
@@ -37,11 +37,9 @@ export const About = component$(() => {
               opacity: toggle.value ? "0" : "1",
             }}
           >
-            I&apos; always been that person who loves to see how things work
-            I&apos;ve disassembled numerous electronic devices to explore their
-            inner workings like a hobby!... Then, one day, I got curious about
-            tweaking their behavior, and that's when I stumbled upon programming
-            languages like C...
+            I'm an enthusiastic web developer with a primary focus on React in
+            my projects. However, I relish exploring various frameworks like
+            Angular, Qwik, Svelte, and Vue to continually expand my knowledge...
           </p>
           <p
             class="second-p lg:text-xl"
@@ -52,11 +50,10 @@ export const About = component$(() => {
               opacity: toggle.value ? "1" : "0",
             }}
           >
-            Although I spent a brief period at university and dabbled in Arduino
-            projects, my passion has always been centered around design and
-            creative ideation. Discovering frontend development marked a
-            significant turning point, and I've since been dedicated to
-            continuous self-directed learning in this field
+            I'm also deeply interested in Node.js and its associated libraries
+            and frameworks, such as Nest.js and Fastify. Additionally, I have a
+            strong inclination towards modern architectural concepts, including
+            microservices, and I enjoy working with cloud platforms like AWS
           </p>
         </section>
         <button
