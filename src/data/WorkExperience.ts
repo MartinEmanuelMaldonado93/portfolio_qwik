@@ -48,7 +48,7 @@ export const workExpData: CardProps[] = [
       "Incorporate Email Notification Functionality.",
     ],
     alt: "coderuner",
-    img_url: "/projects_img/pennybattle.png",
+    img_url: "/projects_img/pennybattle.webp",
     // bg_tw:'bg-yellow-600'
   },
   {
@@ -92,7 +92,7 @@ export const workExpData: CardProps[] = [
     alt: "utn",
     link: "https://www.frba.utn.edu.ar/",
     description: "(Eclipse, MingW, Linux, DSA)",
-    img_url: "/projects_img/utn.jpg",
+    img_url: "/projects_img/utn.webp",
     location: "Buenos Aires, Argentina",
     bg_tw: "bg-slate-400",
     points: [

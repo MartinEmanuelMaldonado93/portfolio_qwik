@@ -43,11 +43,6 @@ export class Cursor {
 				duration: 0.9,
 			}
 		);
-		// this.renderedStyles.tx.previous = this.renderedStyles.tx.current =
-		// 	Cursor.mouse.x - this.bounds.width / 2;
-
-		// this.renderedStyles.ty.previous = this.renderedStyles.ty.previous =
-		// 	Cursor.mouse.y - this.bounds.height / 2;
 	}
 	private _RAF() {
 		this.render();

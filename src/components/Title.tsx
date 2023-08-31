@@ -40,7 +40,7 @@ export const Title = component$(() => {
   return (
     <div
       id="home"
-      class=" flex min-h-screen flex-col gap-10 px-4 sm:items-center sm:justify-evenly sm:gap-5 md:gap-0 "
+      class=" flex -translate-y-10 sm:translate-y-0 min-h-screen flex-col justify-evenly px-4 sm:items-center sm:justify-evenly sm:gap-5 md:gap-0 "
     >
       <div class="text-2xl md:text-3xl">
         <span class="hi animate-fade-in text-center opacity-0">Hi ! </span>

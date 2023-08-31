@@ -13,12 +13,12 @@ import style from "./Experiments.css?inline";
 export const Experiments = component$(() => {
   const title = useSignal<HTMLDivElement>(null!);
   useStyles$(style);
-  
+
   useVisibleTask$(() => {
     titleFadeIn(title.value);
   });
   return (
-    <div class="mx-auto mb-16 mt-60 flex min-h-screen max-w-5xl flex-col items-center px-4">
+    <div class="mt-20 mx-auto mb-16 flex min-h-screen max-w-5xl flex-col items-center px-4">
       <div
         ref={title}
         id="big title"
