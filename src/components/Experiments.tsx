@@ -4,6 +4,8 @@ import {
   useStyles$,
   useVisibleTask$,
 } from "@builder.io/qwik";
+import { GoArrowUpRight16 } from "@qwikest/icons/octicons";
+
 import { animate, stagger } from "motion";
 import Splitting from "splitting";
 import type { ExperimentsType } from "../data/ExperimentsData";
@@ -65,7 +67,8 @@ const Card = component$((props: ExperimentsType) => {
                 rel="noopener noreferrer"
                 class="cursor-pointer"
               >
-                {props.title}
+                {props.title}{" "}
+                <GoArrowUpRight16 class="inline lowercase text-gray-400" />
               </a>
             </div>
             <div class="text-md text-gray-500">{props.brief}</div>
