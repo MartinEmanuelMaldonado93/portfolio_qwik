@@ -91,7 +91,7 @@ export const workExpData: CardProps[] = [
     date: "ago 2019 - en 2020",
     alt: "utn",
     link: "https://www.frba.utn.edu.ar/",
-    description: "(Eclipse, MingW, Linux, DSA)",
+    description: "(Java, C/C++, Eclipse, MingW, Linux, DSA)",
     img_url: "/projects_img/utn.webp",
     location: "Buenos Aires, Argentina",
     bg_tw: "bg-slate-400",
