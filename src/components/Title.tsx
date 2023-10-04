@@ -1,41 +1,41 @@
-import {
-  component$,
-  useSignal,
-  useStyles$,
-  useVisibleTask$,
-} from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { animate, stagger } from "motion";
 import Splitting from "splitting";
 import "splitting/dist/splitting-cells.css";
 import "splitting/dist/splitting.css";
-import { LettersAnimate } from "./Letters";
+import { AnimateLetters } from "./Letters";
 
 export const Title = component$(() => {
-  const ref_titleContainer = useSignal<HTMLDivElement>(null!);
-  const ref_titleDescription = useSignal<HTMLDivElement>(null!);
-  const ref_titleBrief = useSignal<HTMLDivElement>(null!);
-  useStyles$(`
-    .char { opacity: 0; }
-  `);
-  useVisibleTask$(() => {
-    const container = ref_titleContainer.value;
-    const letters = new LettersAnimate(container, Splitting, ".title__text");
+  const ref_container = useSignal<HTMLDivElement>(null!);
+  const ref_description = useSignal<HTMLDivElement>(null!);
+  const ref_brief = useSignal<HTMLDivElement>(null!);
 
-    container.addEventListener("mouseenter", () =>
-      letters.runRotateAnimation(),
-    );
-    container.addEventListener("mouseleave", () =>
-      letters.resetRotateAnimation(),
-    );
+  useVisibleTask$(
+    () => {
+      const container = ref_container.value;
+      const letters = new AnimateLetters(
+        Splitting,
+        container,
+        container.querySelector(".title__text")!,// im martin emanuel ...
+      );
 
-    const description = ref_titleDescription.value;
-    Splitting({ target: description });
-    const descriptionChars = [...description.querySelectorAll(".char")!];
+      container.addEventListener("mouseenter", () =>
+        letters.runRotateAnimation(),
+      );
+      container.addEventListener("mouseleave", () =>
+        letters.resetRotateAnimation(),
+      );
 
-    const delayBase = 1.3;
-    animateDescriptionChars(descriptionChars, delayBase);
-    animateTitleBrief(ref_titleBrief.value, delayBase);
-  },{ strategy: 'document-ready'});
+      const description = ref_description.value;
+      Splitting({ target: description });
+      const descriptionChars = [...description.querySelectorAll(".char")!];
+
+      const delayBase = 1.3;
+      animateDescriptionChars(descriptionChars, delayBase);
+      animateTitleBrief(ref_brief.value, delayBase);
+    },
+    { strategy: "document-ready" },
+  );
 
   return (
     <div
@@ -44,18 +44,18 @@ export const Title = component$(() => {
     >
       <div class="text-2xl md:text-3xl">
         <span class="hi animate-fade-in text-center opacity-0">Hi ! </span>
-        <div ref={ref_titleContainer} class="title__container">
+        <div ref={ref_container} class="title__container">
           <div class="title__text max-w-sm">I&apos;m Martin Emanuel</div>
         </div>
       </div>
       <div
-        ref={ref_titleDescription}
+        ref={ref_description}
         class="title__description text-4xl md:text-5xl"
       >
         <div class="md:text-center">I make</div>
         <div> cool things for the web.</div>
       </div>
-      <p ref={ref_titleBrief} class="translate-y-[100%] text-center opacity-0">
+      <p ref={ref_brief} class="translate-y-[100%] text-center opacity-0">
         Web Design | 3D Graphics | Motion
       </p>
     </div>
@@ -66,7 +66,7 @@ function animateDescriptionChars(chars: HTMLElement[], delayBase: number) {
   animate(
     chars,
     {
-      opacity: [1],
+      opacity: [0, 1],
     },
     {
       duration: 1,
