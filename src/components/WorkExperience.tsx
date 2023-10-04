@@ -11,7 +11,7 @@ export const WorkExperience = component$(() => {
       class="mx-auto flex min-h-screen max-w-5xl flex-col justify-center"
     >
       {workExpData.map((data) => (
-        <CardWorkExperience key={Math.random().toString()} {...data} />
+        <CardWorkExperience key={Math.random() + data.title} {...data} />
       ))}
     </div>
   );

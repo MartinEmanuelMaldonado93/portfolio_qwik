@@ -33,7 +33,7 @@ export const Experiments = component$(() => {
         effects and make innovative websites.
       </div>
       {experiments_data.map((item, index) => (
-        <Card key={Math.random()} {...item} index={index} />
+        <Card key={Math.random() + item.title} {...item} index={index} />
       ))}
     </div>
   );

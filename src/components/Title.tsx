@@ -35,7 +35,7 @@ export const Title = component$(() => {
     const delayBase = 1.3;
     animateDescriptionChars(descriptionChars, delayBase);
     animateTitleBrief(ref_titleBrief.value, delayBase);
-  });
+  },{ strategy: 'document-ready'});
 
   return (
     <div
