@@ -40,14 +40,12 @@ export const Title = component$(() => {
   return (
     <div
       id="home"
-      class=" flex -translate-y-10 sm:translate-y-0 min-h-screen flex-col justify-evenly px-4 sm:items-center sm:justify-evenly sm:gap-5 md:gap-0 "
+      class=" flex min-h-screen -translate-y-10 flex-col justify-evenly px-4 sm:translate-y-0 sm:items-center sm:justify-evenly sm:gap-5 md:gap-0 "
     >
       <div class="text-2xl md:text-3xl">
         <span class="hi animate-fade-in text-center opacity-0">Hi ! </span>
         <div ref={ref_titleContainer} class="title__container">
-          <div class="title__text max-w-sm will-change-transform">
-            I&apos;m Martin Emanuel
-          </div>
+          <div class="title__text max-w-sm">I&apos;m Martin Emanuel</div>
         </div>
       </div>
       <div
