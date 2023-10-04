@@ -20,6 +20,7 @@ module.exports = {
 		"plugin:@typescript-eslint/recommended",
 		"plugin:qwik/recommended",
 	],
+  exclude: ['./postcss.config.js'],
 	parser: "@typescript-eslint/parser",
 	plugins: ["@typescript-eslint"],
 	rules: {

@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@qwikest/icons':
-    specifier: ^0.0.8
-    version: 0.0.8(@builder.io/qwik@1.2.6)
+    specifier: ^0.0.9
+    version: 0.0.9(@builder.io/qwik@1.2.6)
   '@supabase/supabase-js':
     specifier: ^2.32.0
     version: 2.32.0
@@ -3585,8 +3585,8 @@ packages:
     dev: true
     optional: true
 
-  /@qwikest/icons@0.0.8(@builder.io/qwik@1.2.6):
-    resolution: {integrity: sha512-H5bD/UtAXbP8dsZEfmWmLuySS9bZIdlamxKiIeztgf4EtJEuBGB7c0aG3ZZ8FDRGKRvOS2bOy5CRSc97viiWGA==}
+  /@qwikest/icons@0.0.9(@builder.io/qwik@1.2.6):
+    resolution: {integrity: sha512-lb+h61kVCVoY+dcnl3v9IX9bcZt0vFiv3N7J1UNf3sVxWTEZ8RjMzQ8qJA3CkzVdyDwrs3/y/zR247XUbZ2QqQ==}
     engines: {node: '>=15.0.0'}
     peerDependencies:
       '@builder.io/qwik': '>=1.0.0'
