@@ -11,7 +11,7 @@ export const About = component$(() => {
         <div class="mb-2 flex justify-between p-2 lg:text-xl">
           <span class="text-secondary">About: </span>
           <a
-            href="/pdf/MartinMaldonado.cv.pdf"
+            href="/pdf/MartinMaldonado_cv_24.pdf"
             target="_blank"
             class="rounded-md border border-gray-transparent px-2"
           >
