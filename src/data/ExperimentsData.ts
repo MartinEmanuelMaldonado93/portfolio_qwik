@@ -47,7 +47,8 @@ export const experiments_data: ExperimentsType[] = [
     alt: "Mercado libre 3d",
     brief: "Add simple showcase to luxury products",
     img_url: "",
-    link: "https://mercadolibre3d.netlify.app/",
+    // link: "https://mercadolibre3d.netlify.app/",
+    link: "https://www.youtube.com/watch?v=g_bT9I25PxE",
     stack: ["React-Three-Fiber", "Scss", "Webpack5"],
   },
   {
