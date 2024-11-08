@@ -33,7 +33,7 @@ export default component$(() => {
     <div class="bg-grid-gray bg-grid-size min-h-screen">
       <Navbar />
       <Title />
-      <WorkExperience />
+      {/* <WorkExperience /> */}
       <Experiments />
       <About />
       <Contact />

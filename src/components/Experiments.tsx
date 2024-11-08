@@ -4,13 +4,14 @@ import {
   useStyles$,
   useVisibleTask$,
 } from "@builder.io/qwik";
-import { GoArrowUpRight16 } from "@qwikest/icons/octicons";
+import { GoArrowUpRight16, GoLogoGithub16, } from "@qwikest/icons/octicons";
 
 import { animate, stagger } from "motion";
 import Splitting from "splitting";
 import type { ExperimentsType } from "../data/ExperimentsData";
 import { experiments_data } from "../data/ExperimentsData";
 import style from "./Experiments.css?inline";
+import { BsGithub } from "@qwikest/icons/bootstrap";
 
 export const Experiments = component$(() => {
   const title = useSignal<HTMLDivElement>(null!);
@@ -59,17 +60,25 @@ const Card = component$((props: ExperimentsType) => {
     <div ref={card} class="card my-2 w-full max-w-2xl">
       <div class="rounded-md border border-gray-transparent bg-black-transparent px-2 py-2 -backdrop-hue-rotate-15  transition-all duration-300 hover:border-secondary hover:shadow-xl">
         <div class="flex  items-center justify-between">
-          <div>
-            <div class="text-2xl capitalize">
+          <div class="w-full ">
+            <div class="text-2xl flex gap-4 cursor-pointer capitalize w-full">
               <a
                 href={props.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="cursor-pointer"
+                class=" w-full flex justify-between"
               >
                 {props.title}{" "}
-                <GoArrowUpRight16 class="inline lowercase text-gray-400" />
+                <div class="flex gap-6">
+                  <GoArrowUpRight16 class="inline rotate-12 hover:scale-125 hover:-rotate-12 transition-transform duration-300 lowercase text-gray-400" />
+                </div>
               </a>
+              {
+                props.gh_link &&
+                <a href={props.gh_link} target="_blank" rel="noopener noreferrer">
+                  <BsGithub class="hover:scale-110 transition-transform duration-500" />
+                </a>
+              }
             </div>
             <div class="text-md text-gray-500">{props.brief}</div>
             <div class="flex gap-2 ">
